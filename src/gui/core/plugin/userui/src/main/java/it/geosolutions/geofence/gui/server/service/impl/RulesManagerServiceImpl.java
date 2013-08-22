@@ -786,6 +786,8 @@ public class RulesManagerServiceImpl implements IRulesManagerService {
 			} else {
 				details.setArea(null);
 			}
+			
+			details.setAreaMetadataField(layerDetailsInfo.getAllowedAreaMetadataField());
 
 			// ///////////////////////////////////
 			// Saving the available styles if any
@@ -851,6 +853,8 @@ public class RulesManagerServiceImpl implements IRulesManagerService {
 						.getCqlFilterWrite());
 				layerDetailsInfo
 						.setDefaultStyle(layerDetails.getDefaultStyle());
+				
+				layerDetailsInfo.setAllowedAreaMetadataField(layerDetails.getAreaMetadataField());
 
 				MultiPolygon the_geom = null;
 				Geometry geometry = layerDetails.getArea();

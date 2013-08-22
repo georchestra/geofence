@@ -36,7 +36,9 @@ import it.geosolutions.geofence.core.model.adapter.MultiPolygonAdapter;
 import it.geosolutions.geofence.core.model.util.PwEncoder;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -50,6 +52,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -124,6 +127,10 @@ public class GSUser implements Identifiable, Serializable {
     /** Is the GSUser a GS admin? */
     @Column(nullable=false)
     private boolean admin = false;
+    
+    //currently only used for ldap, ignored by hibernate
+    @Transient
+    private Map<String, Object> metadata = new HashMap<String, Object>();
 
 //    /** The user. */
 //    @ManyToOne(optional = false)
@@ -416,6 +423,10 @@ public class GSUser implements Identifiable, Serializable {
             builder.append("dateCreation=").append(dateCreation).append(", ");
         builder.append("]");
         return builder.toString();
+    }
+
+    public Map<String, Object> getMetadata() {
+    	return metadata;
     }
 
 }

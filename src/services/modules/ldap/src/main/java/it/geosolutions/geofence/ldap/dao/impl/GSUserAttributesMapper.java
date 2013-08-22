@@ -20,7 +20,9 @@
 
 import it.geosolutions.geofence.core.model.GSUser;
 
+import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
+import javax.naming.directory.Attribute;
 import javax.naming.directory.Attributes;
 /**
  * AttributeMapper for GSUser objects.
@@ -43,6 +45,16 @@ public class GSUserAttributesMapper extends BaseAttributesMapper {
 		user.setFullName(getAttribute(attrs, "name") + " "
 				+ getAttribute(attrs, "surname"));
 		user.setPassword(getAttribute(attrs, "password"));
+		
+		if (user.getName().equals("admin")) {
+			user.setAdmin(true);
+		}
+		
+		for (String attName : ldapAttributeMappings.keySet()) {
+			if (attName.startsWith("metadata.")) {
+				user.getMetadata().put(attName.substring(9), getAttribute(attrs, attName));
+			}
+		}
 				
 		return user;
 	}

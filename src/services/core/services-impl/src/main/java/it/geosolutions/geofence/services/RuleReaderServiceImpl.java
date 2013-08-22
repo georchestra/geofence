@@ -33,6 +33,12 @@ import org.apache.logging.log4j.Logger;
 
 
 import com.vividsolutions.jts.geom.Geometry;
+import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.geom.MultiPolygon;
+import com.vividsolutions.jts.geom.Polygon;
+import com.vividsolutions.jts.io.ParseException;
+import com.vividsolutions.jts.io.WKTReader;
+
 import it.geosolutions.geofence.core.dao.GSUserDAO;
 import it.geosolutions.geofence.core.dao.LayerDetailsDAO;
 import it.geosolutions.geofence.core.dao.UserGroupDAO;
@@ -60,6 +66,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+
+import javax.xml.bind.annotation.XmlElementDecl.GLOBAL;
 
 /**
  *
@@ -138,7 +146,7 @@ public class RuleReaderServiceImpl implements RuleReaderService {
             UserGroup userGroup = ruleGroup.getKey();
             List<Rule> rules = ruleGroup.getValue();
 
-            AccessInfoInternal accessInfo = resolveRuleset(rules);
+            AccessInfoInternal accessInfo = resolveRuleset(rules, filter.getUser());
             if(LOGGER.isDebugEnabled()) {
                 LOGGER.debug("Filter " + filter + " on group " + userGroup + " has access " + accessInfo);
             }
@@ -270,7 +278,7 @@ public class RuleReaderServiceImpl implements RuleReaderService {
         return allowedStyles;
     }
 
-    private AccessInfoInternal resolveRuleset(List<Rule> ruleList) {
+    private AccessInfoInternal resolveRuleset(List<Rule> ruleList, IdNameFilter user) {
 
         List<RuleLimits> limits = new ArrayList<RuleLimits>();
         AccessInfoInternal ret = null;
@@ -295,7 +303,7 @@ public class RuleReaderServiceImpl implements RuleReaderService {
                     break;
 
                 case ALLOW:
-                    ret = buildAllowAccessInfo(rule, limits, null); 
+                    ret = buildAllowAccessInfo(rule, limits, user); 
                     break;
 
                 default:
@@ -384,6 +392,56 @@ public class RuleReaderServiceImpl implements RuleReaderService {
         LayerDetails details = rule.getLayerDetails();
         if(details != null ) {
             area = intersect(area, details.getArea());
+            
+            String metadataField = details.getAreaMetadataField();
+            if (metadataField != null && !"".equals(metadataField)) {
+            	
+            	GSUser user = getFullUser(userFilter);
+            	String str = (String) user.getMetadata().get(metadataField);
+            	            	
+                if (str != null) {
+                	String wkt, srid;
+                    if (str.indexOf("SRID=") != -1) {
+                        String[] allowedAreaArray = str.split(";");
+
+                        srid = allowedAreaArray[0].split("=")[1];
+                        wkt = allowedAreaArray[1];
+                    }
+                    else {
+                        srid = "4326";
+                        wkt = str;
+                    }
+                    
+                    MultiPolygon the_geom = null;
+    				WKTReader wktReader = new WKTReader();
+    			
+					try {
+    					Geometry geometry;
+							geometry = wktReader.read(wkt);
+						    					
+    					if (geometry instanceof MultiPolygon) {
+        					the_geom = (MultiPolygon) geometry;
+        				} else if (geometry instanceof Polygon) {
+        					GeometryFactory factory = new GeometryFactory();
+        					the_geom = new MultiPolygon(
+        							new Polygon[] { (Polygon) geometry }, factory);
+        				}
+
+        				if (the_geom != null) {
+        					the_geom.setSRID(Integer.valueOf(srid).intValue());
+        					area = intersect(area, the_geom);
+        					if (LOGGER.isDebugEnabled()) {
+        		                LOGGER.debug("Extracted from " + user.getName() + " geometry: " + the_geom.toString());
+        		            }
+        				}
+					} catch (ParseException e) {
+						LOGGER.error(e);
+					}
+    				
+                }
+            	
+            	
+            }
 
             accessInfo.setAttributes(details.getAttributes());
             accessInfo.setCqlFilterRead(details.getCqlFilterRead());
