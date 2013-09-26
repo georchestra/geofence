@@ -115,7 +115,7 @@ public class RuleDetailsEditDialog extends Dialog
         setClosable(true);
         setModal(true);
         setWidth(700);
-        setHeight(427);
+        setHeight(477);
         setId(I18nProvider.getMessages().ruleDialogId());
 
         add(this.getTabWidget());

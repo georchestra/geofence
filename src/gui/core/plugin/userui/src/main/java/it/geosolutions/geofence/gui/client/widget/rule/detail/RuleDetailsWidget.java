@@ -91,7 +91,7 @@ public class RuleDetailsWidget extends ContentPanel
 
         setHeaderVisible(false);
         setFrame(true);
-        setHeight(330);
+        setHeight(380);
         setWidth(690);
         setLayout(new FitLayout());
 
