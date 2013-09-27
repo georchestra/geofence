@@ -68,8 +68,15 @@ public abstract class BaseAttributesMapper implements LdapAttributesMapper {
 			String attributeName)
 			throws javax.naming.NamingException {
 		Attribute attrValue = attrs.get(ldapAttributeMappings.get(attributeName));
-		if(attrValue != null) {
-			return attrValue.get().toString();
+		if(attrValue != null) {			
+			Object value = attrValue.get();
+			if (value instanceof String) {
+				return (String) value;
+			} if (value instanceof byte[]) {
+				return new String((byte[]) value);
+			} else {
+				return value.toString();
+			}
 		}
 		return "";
 	}
