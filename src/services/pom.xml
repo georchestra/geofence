@@ -34,6 +34,7 @@
     </modules>
 
     <properties>
+		<testDir>src/test/java</testDir>
         <geofence-version>2.2-SNAPSHOT</geofence-version>
         <main-prefix>geofence</main-prefix>
 
@@ -857,7 +858,9 @@
     </dependencyManagement>
 
     <build>
+		<testSourceDirectory>${testDir}</testSourceDirectory>
         <plugins>
+		
             <!-- compilation -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -890,6 +893,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
+					<skip>${skip}</skip>
                     <systemProperties>
                         <property>
                             <name>dgws.config.dir</name>
@@ -1067,4 +1071,18 @@
 
     </pluginRepositories>
 
-</project>
+ <profiles>
+  <profile>
+   <id>skipTest</id>
+   <activation>
+      <file>
+        <missing>hack_to_make_all_enabled_by_default</missing>
+      </file>
+   </activation>
+   <properties>
+     <skip>true</skip>
+     <testDir>src/undefined</testDir>
+   </properties>
+ </profile>
+  </profiles>
+ </project>

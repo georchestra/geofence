@@ -21,6 +21,9 @@
         <url>http://www.geo-solutions.it</url>
     </organization>
 
+	<properties>
+		<skipTests>true</skipTests>
+	</properties>
     <developers>
         <developer>
             <id>etj</id>
