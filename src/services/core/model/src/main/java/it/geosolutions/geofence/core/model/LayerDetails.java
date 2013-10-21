@@ -88,8 +88,11 @@ public class LayerDetails implements Serializable {
 	@Type(type = "org.hibernatespatial.GeometryUserType")
 	@Column(name = "area")
 	private MultiPolygon area;
+	
+	@Column
+	private String areaMetadataField;
 
-    @OneToOne(optional=false)
+	@OneToOne(optional=false)
 //    @Check(constraints="rule.access='LIMIT'") // ??? check this
     @ForeignKey(name="fk_details_rule")
     private Rule rule;
@@ -206,5 +209,14 @@ public class LayerDetails implements Serializable {
                 + " styles=" + allowedStyles
                 + '}';
     }
+    
+
+    public String getAreaMetadataField() {
+		return areaMetadataField;
+	}
+
+	public void setAreaMetadataField(String areaMetadataField) {
+		this.areaMetadataField = areaMetadataField;
+	}
 
 }

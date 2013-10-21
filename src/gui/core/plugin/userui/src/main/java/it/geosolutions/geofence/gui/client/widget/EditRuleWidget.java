@@ -1119,10 +1119,12 @@ public class EditRuleWidget extends GeofenceFormWidget
                         Service wms = new Service("WMS");
                         Service wcs = new Service("WCS");
                         Service wfs = new Service("WFS");
+                        Service gwc = new Service("GWC");
 
                         services.add(wms);
                         services.add(wcs);
                         services.add(wfs);
+                        services.add(gwc);
                     }
 
                     availableServices.add(services);

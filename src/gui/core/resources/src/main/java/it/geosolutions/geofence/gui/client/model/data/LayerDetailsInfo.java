@@ -29,6 +29,8 @@ public class LayerDetailsInfo extends BeanModel implements IsSerializable
     private String cqlFilterWrite;
 
     private String allowedArea;
+    
+    private String allowedAreaMetadataField;
 
     private String srid;
 
@@ -314,5 +316,13 @@ public class LayerDetailsInfo extends BeanModel implements IsSerializable
 
         return builder.toString();
     }
+
+	public String getAllowedAreaMetadataField() {
+		return allowedAreaMetadataField;
+	}
+
+	public void setAllowedAreaMetadataField(String allowedAreaMetadataField) {
+		this.allowedAreaMetadataField = allowedAreaMetadataField;
+	}
 
 }

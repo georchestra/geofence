@@ -11,6 +11,7 @@
             classpath*:/applicationContext-common.xml
             classpath:applicationContext-client.xml
             classpath*:applicationContext.xml
+	    classpath:applicationContext-ldap.xml
         </param-value>
 	</context-param>
 

@@ -1,0 +1,64 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+
+       xmlns:cxf="http://cxf.apache.org/core"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+
+       xmlns:geofence="http://geosolutions.it/geofence"
+
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://cxf.apache.org/jaxws                     http://cxf.apache.org/schemas/jaxws.xsd
+            http://cxf.apache.org/jaxrs                     http://cxf.apache.org/schemas/jaxrs.xsd
+            http://cxf.apache.org/core                      http://cxf.apache.org/schemas/core.xsd"
+
+       default-autowire="byName">
+
+    <context:annotation-config />
+
+	<bean id="baseUserDAO" class="it.geosolutions.geofence.core.dao.impl.GSUserDAOImpl" >
+		<property name="searchProcessor" ref="geofenceSearchProcessor" />
+	</bean>
+	
+	<bean id="baseUserGroupDAO" class="it.geosolutions.geofence.core.dao.impl.UserGroupDAOImpl" >
+		<property name="searchProcessor" ref="geofenceSearchProcessor" />
+	</bean>
+	
+	<bean id="gsUserDAO" class="it.geosolutions.geofence.ldap.dao.impl.GSUserDAOLdapImpl">
+		<property name="ldapTemplate" ref="geofenceLdapTemplate" />
+		<property name="attributesMapper" ref="geofenceLdapUserAttributesMapper" />
+		<property name="groupsAttributesMapper" ref="geofenceLdapUserGroupAttributesMapper" />
+		<property name="dao" ref="baseUserDAO" />
+	</bean>
+	
+	<bean id="userGroupDAO" class="it.geosolutions.geofence.ldap.dao.impl.UserGroupDAOLdapImpl">
+		<property name="ldapTemplate" ref="geofenceLdapTemplate" />
+		<property name="attributesMapper" ref="geofenceLdapUserGroupAttributesMapper" />
+		<property name="dao" ref="baseUserGroupDAO" />
+	</bean>
+	
+	
+	
+	<bean id="ruleDAO" class="it.geosolutions.geofence.ldap.dao.impl.RuleDAOLdapImpl" >
+		<property name="searchProcessor" ref="geofenceSearchProcessor" />
+		<property name="userDao" ref="baseUserDAO" />
+		<property name="userGroupDao" ref="baseUserGroupDAO" />
+	</bean>
+	
+	<bean id="geofenceLdapUserAttributesMapper" class="it.geosolutions.geofence.ldap.dao.impl.GSUserAttributesMapper">
+	<property name="ldapAttributeMappings">
+		<map>
+			<entry key="id" value="uidNumber"/>
+			<entry key="username" value="uid"/>
+			<entry key="email" value="mail"/>
+			<entry key="name" value="cn"/>
+			<entry key="surname" value="sn"/>    			
+			<entry key="password" value="userPassword"/>    	
+			<entry key="metadata.geometry" value="geometry"/>    			    		
+		</map>
+	</property>
+</bean>
+
+</beans>

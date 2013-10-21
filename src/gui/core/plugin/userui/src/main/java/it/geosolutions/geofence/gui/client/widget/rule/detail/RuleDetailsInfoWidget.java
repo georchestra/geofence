@@ -94,6 +94,8 @@ public class RuleDetailsInfoWidget extends GeofenceFormBindingWidget<LayerDetail
 
     /** The allowed area. */
     private TextArea allowedArea;
+    
+    private TextArea allowedAreaMetadataField;
 
 	private Button draw;
 
@@ -210,6 +212,22 @@ public class RuleDetailsInfoWidget extends GeofenceFormBindingWidget<LayerDetail
             });
 
         fieldSet.add(allowedArea);
+        
+        allowedAreaMetadataField = new TextArea();
+        allowedAreaMetadataField.setFieldLabel("Allowed Area MetaData Field");
+        allowedAreaMetadataField.setWidth(200);
+        allowedAreaMetadataField.setPreventScrollbars(true);
+        allowedAreaMetadataField.addListener(Events.Change, new Listener<FieldEvent>()
+            {
+
+                public void handleEvent(FieldEvent be)
+                {
+                    ruleDetailsWidget.enableSaveButton();
+                }
+
+            });
+
+        fieldSet.add(allowedAreaMetadataField);
 
         draw = new Button(I18nProvider.getMessages().drawAoiButton(),
                 new SelectionListener<ButtonEvent>()
@@ -268,7 +286,8 @@ public class RuleDetailsInfoWidget extends GeofenceFormBindingWidget<LayerDetail
         layerDetailsForm.setAllowedArea(wkt);
         layerDetailsForm.setSrid(srid);
         layerDetailsForm.setCqlFilterRead(cqlFilterRead.getValue());
-        layerDetailsForm.setCqlFilterWrite(cqlFilterWrite.getValue());
+        layerDetailsForm.setCqlFilterWrite(cqlFilterWrite.getValue());        
+        layerDetailsForm.setAllowedAreaMetadataField(allowedAreaMetadataField.getValue());
 
         LayerStyle layerStyle = comboStyles.getValue();
         if (layerStyle != null)
@@ -327,6 +346,8 @@ public class RuleDetailsInfoWidget extends GeofenceFormBindingWidget<LayerDetail
         {
             allowedArea.setValue("SRID=" + srid + ";" + area);
         }
+        
+        allowedAreaMetadataField.setValue(layerDetailsInfo.getAllowedAreaMetadataField());
     }
 
     /**

@@ -117,7 +117,7 @@ public class RuleDetailsGridWidget extends GeofenceGridWidget<LayerStyle> {
 	public void setGridProperties() {
 		grid.setLoadMask(true);
 		grid.setAutoWidth(true);
-		grid.setHeight(300);
+		grid.setHeight(380);
 		grid.setWidth(650);
 	}
 
