@@ -22,6 +22,15 @@ High level arch
 This last module provides a jar file that will be plugged into GeoServer. 
 The GeoFence code base includes a module that will build a GeoServer .war file ready to be integrated with GeoFence.
 
+geOrchestra settings
+--------------------------------------------------
+* **GeoFence** is behind the security-proxy and only users with role ROLE_ADMINISTRATOR can access to the admin ui.
+* You have to update the security directory of your DATA_DIR in order to make your **GeoServer** able to communicate with the **GeoFence**.
+Edit the file *data_dir_path*/security/auth/default/config.xml, and change the className value to refer geofence authentification provider :
+  
+          <className>it.geosolutions.geoserver.authentication.auth.GeofenceAuthenticationProvider</className>
+
+
 Download
 ==================================================
 * [**GeoFence** .war file](http://maven.geo-solutions.it/it/geosolutions/geofence/geofence-gui-web/2.2-SNAPSHOT/geofence-gui-web-2.2-SNAPSHOT.war)
