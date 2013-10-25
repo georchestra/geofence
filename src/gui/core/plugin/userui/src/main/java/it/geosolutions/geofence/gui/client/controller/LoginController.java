@@ -117,7 +117,6 @@ public class LoginController extends Controller
             });
 
         initWidget();
-        onLogin(null);
     }
 
     /**
@@ -312,6 +311,8 @@ public class LoginController extends Controller
      */
     private void onShowLoginWidget()
     {
+        onLogin(null);
+
         this.loginRemote.isAuthenticated(new AsyncCallback<Boolean>()
             {
 
