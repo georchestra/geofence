@@ -87,8 +87,6 @@ public class LoginService implements ILoginService
      */
     public User authenticate(String userName, String password, HttpSession session) throws ApplicationException
     {
-        logger.info("Authenticating '" + userName+"'");
-
         GrantedAuths grantedAuths = null;
         String token = null;
 
@@ -109,13 +107,22 @@ public class LoginService implements ILoginService
             if (authentication != null && authentication.isAuthenticated())
             {
                 String name = authentication.getName();
+                logger.info("Authenticating '" + name+"'");
+
                 try {
                     matchingUser = geofenceRemoteService.getGfUserAdminService().get(userName);
                     password = matchingUser.getPassword();
+
                     userName = name;
                     grantedAuths = new GrantedAuths();
+                    List<GrantedAuthority> authorities = (List<GrantedAuthority>)authentication.getAuthorities();
                     List<Authority> auths = new ArrayList<Authority>();
-                    auths.add(Authority.LOGIN);
+                    for (GrantedAuthority auth : authorities) {
+                    	if(auth.getAuthority().equals("ROLE_ADMINISTRATOR")) {
+                    		logger.info("Connect with role : " + auth.getAuthority());
+                    		auths.add(Authority.LOGIN);
+                    	}
+                    }
                     grantedAuths.setAuthorities(auths);
                 } catch (NotFoundServiceEx ex) {
                     logger.warn("User not found");
