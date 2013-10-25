@@ -117,6 +117,7 @@ public class LoginController extends Controller
             });
 
         initWidget();
+        onLogin(null);
     }
 
     /**
@@ -260,8 +261,8 @@ public class LoginController extends Controller
      */
     private void onLogin(AppEvent event)
     {
-        String[] values = (String[]) event.getData();
-        this.loginRemote.authenticate(values[0], values[1], new AsyncCallback<User>()
+//        String[] values = (String[]) event.getData();
+        this.loginRemote.authenticate(null, null, new AsyncCallback<User>()
             {
 
                 public void onSuccess(User user)

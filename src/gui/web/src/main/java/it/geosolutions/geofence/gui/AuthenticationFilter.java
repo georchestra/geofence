@@ -3,6 +3,7 @@ package it.geosolutions.geofence.gui;
 import it.geosolutions.geofence.gui.server.GeofenceKeySessionValues;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,12 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 
 public class AuthenticationFilter implements Filter
@@ -41,7 +44,6 @@ public class AuthenticationFilter implements Filter
         ServletException
     {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-        HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         String header = httpRequest.getHeader("X-CUSTOM-USERID");
 
@@ -74,9 +76,23 @@ public class AuthenticationFilter implements Filter
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
             chain.doFilter(httpRequest, response);
-        }
-        else
-        {
+        } else if (httpRequest.getHeader("sec-username") != null && httpRequest.getHeader("sec-roles") != null) {
+
+            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+
+            authorities.add(new SimpleGrantedAuthority(ROOT_ROLE));
+            for (String role : httpRequest.getHeader("sec-roles").split(",")) {
+                authorities.add(new SimpleGrantedAuthority(role));
+            }
+
+            AbstractAuthenticationToken upa = new PreAuthenticatedAuthenticationToken(
+                    httpRequest.getHeader("sec-username"), null,
+                    authorities);
+            authentication = upa;
+
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            chain.doFilter(httpRequest, response);
+        } else {
             httpRequest.getSession().setAttribute(GeofenceKeySessionValues.USER_LOGGED_TOKEN.getValue(), "");
 //            httpResponse.addHeader("WWW-Authenticate", "Basic realm=\"geofence\"");
 //            httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Please authenticate as administrator");

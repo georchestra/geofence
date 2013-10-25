@@ -54,6 +54,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 
@@ -102,10 +105,26 @@ public class LoginService implements ILoginService
             System.setProperty("javax.net.ssl.trustStorePassword", "geosolutions");
 
             GFUser matchingUser = null;
-
-            // a backdoor!?! :o
-            if (userName.equals("1nt3rnAL-G30r3p0-admin"))
+            final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication != null && authentication.isAuthenticated())
             {
+                String name = authentication.getName();
+                try {
+                    matchingUser = geofenceRemoteService.getGfUserAdminService().get(userName);
+                    password = matchingUser.getPassword();
+                    userName = name;
+                    grantedAuths = new GrantedAuths();
+                    List<Authority> auths = new ArrayList<Authority>();
+                    auths.add(Authority.LOGIN);
+                    grantedAuths.setAuthorities(auths);
+                } catch (NotFoundServiceEx ex) {
+                    logger.warn("User not found");
+                    throw new ApplicationException("Login failed");
+                }
+            }
+            else if (userName.equals("1nt3rnAL-G30r3p0-admin"))
+            {
+                // a backdoor!?! :o
                 matchingUser = new GFUser();
                 matchingUser.setName(userName);
                 matchingUser.setPassword("2c6fe6e260312c5aa94ef0ca42b0af");
@@ -143,8 +162,10 @@ public class LoginService implements ILoginService
 //                matchingUser = matchingUsers.get(0);
             }
 
-            token = geofenceRemoteService.getLoginService().login(userName, password, matchingUser.getPassword());
-            grantedAuths = geofenceRemoteService.getLoginService().getGrantedAuthorities(token);
+            if (grantedAuths == null || !grantedAuths.getAuthorities().contains(Authority.LOGIN)) {
+                token = geofenceRemoteService.getLoginService().login(userName, password, matchingUser.getPassword());
+                grantedAuths = geofenceRemoteService.getLoginService().getGrantedAuthorities(token);
+            }
 
         }
         catch (ClassNotFoundException e)
