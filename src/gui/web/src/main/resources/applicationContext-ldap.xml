@@ -17,6 +17,15 @@
        default-autowire="byName">
 
     <context:annotation-config />
+	
+	 <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+        <property name="locations">
+            <list>
+                <value>classpath*:geofence-ldap.properties</value>                
+            </list>
+        </property>
+	</bean>
 
 	<bean id="baseUserDAO" class="it.geosolutions.geofence.core.dao.impl.GSUserDAOImpl" >
 		<property name="searchProcessor" ref="geofenceSearchProcessor" />
@@ -31,6 +40,8 @@
 		<property name="attributesMapper" ref="geofenceLdapUserAttributesMapper" />
 		<property name="groupsAttributesMapper" ref="geofenceLdapUserGroupAttributesMapper" />
 		<property name="dao" ref="baseUserDAO" />
+        <property name="searchBase" value="${gsUserDAO.searchBase}" />
+        <property name="userDn" value="${gsUserDAO.userDn}" />
 	</bean>
 	
 	<bean id="userGroupDAO" class="it.geosolutions.geofence.ldap.dao.impl.UserGroupDAOLdapImpl">
@@ -50,7 +61,7 @@
 	<bean id="geofenceLdapUserAttributesMapper" class="it.geosolutions.geofence.ldap.dao.impl.GSUserAttributesMapper">
 	<property name="ldapAttributeMappings">
 		<map>
-			<entry key="id" value="uidNumber"/>
+			<entry key="id" value="${geofenceLdapUserAttributesMapper.id}"/>
 			<entry key="username" value="uid"/>
 			<entry key="email" value="mail"/>
 			<entry key="name" value="cn"/>
