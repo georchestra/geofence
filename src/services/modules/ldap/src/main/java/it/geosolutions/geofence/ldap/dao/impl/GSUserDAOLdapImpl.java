@@ -46,6 +46,8 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
 	private AttributesMapper groupsAttributesMapper;	
 	String userDn = "uid=%s,ou=People";	
 	
+	private final String GEORCHESTRA_ADMIN_GROUP = "ADMINISTRATOR";
+	
 	
 	/**
 	 * 
@@ -127,7 +129,21 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
 		return fillWithGroups(lookup(String.format(userDn, name)));
 	}
 
-	
+	/**
+	 * Check if the user belongs to the group ADMINISTRATOR (that tells in georchestra
+	 * that the user is geoserver admin). If so, set it to admin in geofence.
+	 * @param user
+	 */
+	private void setGeorchestraAdmin(GSUser user) {
+		for (Iterator<UserGroup> it = user.getGroups().iterator(); it.hasNext(); ) {
+			UserGroup group = it.next();
+			if(group.getName().equals(GEORCHESTRA_ADMIN_GROUP)) {
+				user.setAdmin(true);
+				break;
+			}
+	    }
+	}
+
 
 	/**
 	 * Updates the groups list for the given user.
@@ -137,6 +153,7 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
 	 */
 	private GSUser fillWithGroups(GSUser user) {		
 		user.setGroups(getGroups(user));
+		setGeorchestraAdmin(user);
 		return user;
 	}	
 }
