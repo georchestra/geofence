@@ -54,7 +54,9 @@ public class GeofenceGlobalConfiguration implements IGeofenceConfiguration {
 	private String baseLayerTitle;
 	private String baseLayerFormat;
 	private String baseLayerStyle;
-
+	private String mapCenterLon;
+	private String mapCenterLat;
+	private String mapZoom;
 	/**
 	 * Gets the profile bean manager.
 	 * 
@@ -135,4 +137,47 @@ public class GeofenceGlobalConfiguration implements IGeofenceConfiguration {
 		return baseLayerStyle;
 	}
 
+	/**
+	 * @return the mapCenterLon
+	 */
+	public String getMapCenterLon() {
+		return mapCenterLon;
+	}
+
+	/**
+	 * @param mapCenterLon the mapCenterLon to set
+	 */
+	public void setMapCenterLon(String mapCenterLon) {
+		this.mapCenterLon = mapCenterLon;
+	}
+
+	/**
+	 * @return the mapCenterLat
+	 */
+	public String getMapCenterLat() {
+		return mapCenterLat;
+	}
+
+	/**
+	 * @param mapCenterLat the mapCenterLat to set
+	 */
+	public void setMapCenterLat(String mapCenterLat) {
+		this.mapCenterLat = mapCenterLat;
+	}
+
+	/**
+	 * @return the mapZoom
+	 */
+	public String getMapZoom() {
+		return mapZoom;
+	}
+
+	/**
+	 * @param mapZoom the mapZoom to set
+	 */
+	public void setMapZoom(String mapZoom) {
+		this.mapZoom = mapZoom;
+	}
+
+	
 }

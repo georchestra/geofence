@@ -51,6 +51,7 @@ import it.geosolutions.geogwt.gui.client.widget.map.action.ToolbarActionRegistry
 import java.util.ArrayList;
 import java.util.List;
 
+import org.gwtopenmaps.openlayers.client.Bounds;
 import org.gwtopenmaps.openlayers.client.LonLat;
 import org.gwtopenmaps.openlayers.client.Map;
 import org.gwtopenmaps.openlayers.client.MapOptions;
@@ -362,11 +363,15 @@ public class AppView extends View
         addBaseLayer();
 
         Dispatcher.forwardEvent(GeoGWTEvents.ATTACH_MAP_WIDGET, map);
+        
+        GeofenceGlobalConfiguration geoFenceConfiguration = (GeofenceGlobalConfiguration) GeofenceUtils.
+                getInstance().getGlobalConfiguration();
 
         // Adjusting the Zoom level
         // Dispatcher.forwardEvent(GeoGWTEvents.ZOOM_TO_MAX_EXTENT);
-        Dispatcher.forwardEvent(GeoGWTEvents.SET_MAP_CENTER, new Double[] { 10.0, 32.0 });
-        Dispatcher.forwardEvent(GeoGWTEvents.ZOOM, 3);
+        Dispatcher.forwardEvent(GeoGWTEvents.SET_MAP_CENTER, new Double[] { Double.valueOf(geoFenceConfiguration.getMapCenterLon()),
+                Double.valueOf(geoFenceConfiguration.getMapCenterLat()) });
+        Dispatcher.forwardEvent(GeoGWTEvents.ZOOM, Integer.parseInt(geoFenceConfiguration.getMapZoom()));
 
         ToolbarItemManager toolbarItemManager = new ToolbarItemManager();
 
