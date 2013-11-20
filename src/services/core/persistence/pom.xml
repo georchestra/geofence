@@ -135,21 +135,21 @@
                  http://www.hibernatespatial.org/hibernate-spatial-h2-geodb/usage.html
             -->
             
-<!--            <dependency>
+            <dependency>
                 <groupId>org.hibernatespatial</groupId>
                 <artifactId>hibernate-spatial-postgis</artifactId>
             </dependency>
-
+<!--
             <dependency>
                 <groupId>org.hibernatespatial</groupId>
                 <artifactId>hibernate-spatial-oracle</artifactId>
-            </dependency>-->
+            </dependency>
 
             <dependency>
                 <groupId>org.hibernatespatial</groupId>
                 <artifactId>hibernate-spatial-h2-geodb</artifactId>
             </dependency>
-
+-->
 		    <!-- =========================================================== -->
 		    <!--     JDBC                                                    -->
 		    <!-- =========================================================== -->
