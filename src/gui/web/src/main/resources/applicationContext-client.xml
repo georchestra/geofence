@@ -93,6 +93,9 @@
         <property name="baseLayerTitle" value="${geofenceGlobalConfiguration.baseLayerTitle}"/>
         <property name="baseLayerFormat" value="${geofenceGlobalConfiguration.baseLayerFormat}"/>
         <property name="baseLayerStyle" value="${geofenceGlobalConfiguration.baseLayerStyle}"/>
+        <property name="mapCenterLon" value="${geofenceGlobalConfiguration.mapCenterLon}"/>
+        <property name="mapCenterLat" value="${geofenceGlobalConfiguration.mapCenterLat}"/>
+        <property name="mapZoom" value="${geofenceGlobalConfiguration.mapZoom}"/>
     </bean>
     
         
