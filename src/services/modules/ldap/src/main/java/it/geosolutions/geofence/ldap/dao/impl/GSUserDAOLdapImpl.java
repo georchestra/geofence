@@ -26,6 +26,7 @@ import it.geosolutions.geofence.core.model.UserGroup;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Iterator;
 
 import org.springframework.ldap.core.AttributesMapper;
 
