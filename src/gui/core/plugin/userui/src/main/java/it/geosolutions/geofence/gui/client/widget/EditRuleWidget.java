@@ -575,6 +575,7 @@ public class EditRuleWidget extends GeofenceFormWidget
                     usersComboBox.setTypeAhead(true);
                     usersComboBox.setTriggerAction(TriggerAction.ALL);
                     usersComboBox.setWidth(100);
+                    usersComboBox.setMinListWidth(350);
 
                     if (model.getUser() != null)
                     {
@@ -783,6 +784,7 @@ public class EditRuleWidget extends GeofenceFormWidget
                     profilesComboBox.setTypeAhead(true);
                     profilesComboBox.setTriggerAction(TriggerAction.ALL);
                     profilesComboBox.setWidth(100);
+                    profilesComboBox.setMinListWidth(350);
 
                     if (model.getProfile() != null)
                     {
