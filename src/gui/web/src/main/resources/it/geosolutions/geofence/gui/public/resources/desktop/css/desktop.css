@@ -1,4 +1,11 @@
 /*
+ * Ext GWT 2.2.5 - Ext for GWT
+ * Copyright(c) 2007-2010, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ */
+/*
  * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
@@ -235,15 +242,15 @@ html,body {
 }
 
 .add {
-  background-image: url(../../shared/icons/fam/add.gif) !important;
+  background-image: url(../images/add.gif) !important;
 }
 
 .option {
-  background-image: url(../../shared/icons/fam/plugin.gif) !important;
+  background-image: url(../images/plugin.gif) !important;
 }
 
 .remove {
-  background-image: url(../../shared/icons/fam/delete.gif) !important;
+  background-image: url(../images/delete.gif) !important;
 }
 
 .tabs {
@@ -360,6 +367,12 @@ html,body {
   background: none;
   padding: 0px;
   border: 0px none;
+}
+#ux-taskbar-start button {
+  padding: 7px 0px 7px 28px !important;
+}
+#ux-taskbuttons-panel button {
+  padding: 7px 0px 7px 20px !important;
 }
 
 #ux-taskbuttons-panel {
@@ -490,7 +503,9 @@ td.ux-taskButtons-edge { /*float:left;*/
 .ux-start-menu-tools-panel ul.x-menu-list li.x-menu-list-item .x-menu-item-active a.x-menu-item {
   color: #000000;
 }
-
+.ux-start-menu-apps-panel ul.x-menu-list .x-menu-list-item a.x-menu-item {
+  color: black;
+}
 .ux-start-menu-tools-panel .x-menu-item-active {
   background: #525456 url( ../images/taskbar/black/item-over.gif ) repeat-x left bottom;
   border: 1px solid #000000;
