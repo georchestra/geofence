@@ -13,7 +13,7 @@ It provides new features as:
 - controls feature attributes access
 - rules on data CQL filters
 
-Georchestra Integration
+geOrchestra Integration
 --------------------------
 ###Build
 **Important** : the geofence build will build the core and the ui of geofence webapp but will also build a customised geoserver that can defer rules management to geofence.
@@ -30,9 +30,9 @@ will build geofence and a geoserver (geoserver-private-template.war and geofence
 
 ####Build Process
 - If geofence profile is not activated
-geoserver submodule will be build as a war, then exploded and compressed again with georchestra geoserver specifics stuff.
+geoserver submodule will be build as a war, then exploded and compressed again with geOrchestra geoserver specifics stuff.
 - If geofence is activated
-geoserver submodule will be build, then geofence geoserver will be build by overwritting webapp and security modules of the built geserver. Then georchestra geoserver will be reconstructed on top of the geofence geoserver target war file.
+geoserver submodule will be build, then geofence geoserver will be build by overwritting webapp and security modules of the built geserver. Then geOrchestra geoserver will be reconstructed on top of the geofence geoserver target war file.
 
 Configuration
 --------------
@@ -41,8 +41,8 @@ Follow official documentation to configure your geofence:
 * [How to build GeoFence](https://github.com/geosolutions-it/geofence/wiki/Building-instructions)
 * [How to configure GeoFence](https://github.com/geosolutions-it/geofence/wiki/WebApps-configuration)
 
-#### Georchestra Config
-Georchestra specific configuration is stored in config/default folder.
+#### geOrchestra Config
+geOrchestra specific configuration is stored in config/default folder.
 https://github.com/georchestra/georchestra/tree/add_geofence/config/defaults/geofence-webapp/WEB-INF/classes
 
 You can see files that set
