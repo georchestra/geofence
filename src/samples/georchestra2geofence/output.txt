@@ -1,0 +1,3386 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<batch>
+    <operation service="groups" type="insert">
+        <userGroup enabled="true">
+            <name>DATAVIEWMPS</name>
+        </userGroup>
+    </operation>
+    <operation service="groups" type="insert">
+        <userGroup enabled="true">
+            <name>DATAVIEWPUBLIC</name>
+        </userGroup>
+    </operation>
+    <operation service="groups" type="insert">
+        <userGroup enabled="true">
+            <name>DATAVIEWES</name>
+        </userGroup>
+    </operation>
+    <operation service="groups" type="insert">
+        <userGroup enabled="true">
+            <name>DATAVIEWUNCLASSIFIED</name>
+        </userGroup>
+    </operation>
+    <operation service="groups" type="insert">
+        <userGroup enabled="true">
+            <name>DATAADMINGITEAM</name>
+        </userGroup>
+    </operation>
+    <operation service="groups" type="insert">
+        <userGroup enabled="true">
+            <name>DATAVIEWPNN</name>
+        </userGroup>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>P191705</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>P185371</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>P183761</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>C082505</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation name="P190757" service="users" type="update">
+        <user>
+            <groups>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>P179312</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>C081777</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>P185443</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation name="C091937" service="users" type="update">
+        <user>
+            <groups>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>P183603</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>C081269</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>C073340</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>C081562</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>P190882</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>P198644</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation name="C082346" service="users" type="update">
+        <user>
+            <groups>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAADMINGITEAM</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>P186637</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="users" type="insert">
+        <user enabled="true">
+            <name>C081771</name>
+            <groups>
+                <group>
+                    <name>DATAVIEWMPS</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPNN</name>
+                </group>
+                <group>
+                    <name>DATAVIEWES</name>
+                </group>
+                <group>
+                    <name>DATAVIEWUNCLASSIFIED</name>
+                </group>
+                <group>
+                    <name>DATAVIEWPUBLIC</name>
+                </group>
+            </groups>
+        </user>
+    </operation>
+    <operation service="groups" type="insert">
+        <userGroup enabled="true">
+            <name>DataAdminAstrium </name>
+        </userGroup>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWUNCLASSIFIED</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWUNCLASSIFIED</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWUNCLASSIFIED</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWUNCLASSIFIED</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSOSGB00110026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSEAEW00010004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000026</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000034</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000034</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000034</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000034</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000034</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSMPSF00000034</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSMPSF00000034</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000034</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSMPSF00000035</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSNOCC00080001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWPNN</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWUNCLASSIFIED</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWUNCLASSIFIED</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWUNCLASSIFIED</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWUNCLASSIFIED</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSCOMB10000018</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSTEST00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSTEST00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSTEST00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSTEST00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSTEST00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSTEST00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSTEST00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSTEST00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSTEST00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSTEST00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSTEST00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSTEST00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSTEST00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSTEST00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSTEST00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWES</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSTEST00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSTEST00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSTEST00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSTEST00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSTEST00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000001</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000002</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000003</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000004</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000005</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000005</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000005</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000005</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000005</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000005</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000005</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000005</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000006</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000006</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000006</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000006</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000006</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000006</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000006</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000006</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000007</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000007</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000007</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000007</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000007</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000007</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000007</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000007</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000008</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000008</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000008</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000008</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000008</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000008</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000008</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000008</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000009</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000009</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000009</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000009</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000009</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000009</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000009</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000009</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000010</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000011</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000011</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000011</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000011</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000011</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000011</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000011</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000011</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000012</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000012</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000012</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000012</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000012</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000012</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000012</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000012</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000013</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000013</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000013</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000013</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000013</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000013</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000013</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000013</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000014</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DataAdminAstrium </name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000014</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000014</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAADMINGITEAM</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000014</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WMS</service>
+            <layer>MPSDEMO00000014</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>Transaction</request>
+            <layer>MPSDEMO00000014</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="DENY">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <request>LockFeature</request>
+            <layer>MPSDEMO00000014</layer>
+        </rule>
+    </operation>
+    <operation service="rules" type="insert">
+        <rule grant="ALLOW">
+            <position position="offsetFromBottom" value="0"/>
+            <group>
+                <name>DATAVIEWMPS</name>
+            </group>
+            <service>WFS</service>
+            <layer>MPSDEMO00000014</layer>
+        </rule>
+    </operation>
+</batch>
