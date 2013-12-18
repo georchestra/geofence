@@ -79,5 +79,20 @@ Once logged in the web interface, You can see users and groups tabs, with data f
 You can manage several geoserver instances within the same geofence. You have to create an instance of your geochestra geoserver in the instance tab. Buy default, geoserver instance name is *default-gs*. You need to specify a user that is ADMINISTRATOR of the geoserver when creating the instance.
 #### Rules
 You can specify you security rules in the rules tab.
+
+**Important:** GeoFence rules will fully over write **GeoServer** security rules, they are not complementary. Once you've installed GeoFence, all your GeoServer rules will become obsoletes.
+
+You would need to import your **GeoServer** rules into **GeoFence**. You can find a simple java application that can help you in this task in https://github.com/georchestra/geofence/tree/georchestra/src/samples/georchestra2geofence.
+This sample code allow you to import 
+* groups from an [LDAP CSV export file](https://github.com/georchestra/geofence/blob/georchestra/src/samples/georchestra2geofence/src/test/resources/groups.csv)
+* rules from [GeoServer layers security file](https://github.com/georchestra/geofence/blob/georchestra/src/samples/georchestra2geofence/src/test/resources/layers.properties)
+
+Note also that there is a [proposal](https://github.com/geosolutions-it/geofence/wiki/Proposal-%233:-GeoServer-Roles-to-GeoFence-groups-mapping) about using GeoServer Roles instead of users for authorization purposes through GeoFence
+
 #### LDAP geometry rule
-[Documentation](https://github.com/NielsCharlier/geofence/wiki/Storing-Geometries-in-LDAP)
+By default, **GeoFence** allow you to restrict a layer visibility on a geometry, you can add this constraint into the rule definition itself.
+
+In geOrchestra, you can extend this by setting a geometry to each user in LDAP. If a user has a geometry in his LDAP definition, then all layers can be restricted to that geometry by defining only one rule.
+This is explained here : [Documentation](https://github.com/NielsCharlier/geofence/wiki/Storing-Geometries-in-LDAP)
+
+**Important:** Note that the geometry is defined as a WKT geometry. The projection has to be the same as the native projection of the layer into GeoServer, otherwise the rule won't be correctly applied.
