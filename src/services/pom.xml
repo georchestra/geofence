@@ -1022,6 +1022,11 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>mapfish_repo</id>
+            <name>Mapfish repository</name>
+            <url>http://dev.mapfish.org/maven/repository</url>
+        </repository>
     </repositories>
 
     <pluginRepositories>
