@@ -137,7 +137,8 @@
 	</dependencies>
 	
 	<build>
-		<testResources><testResource><directory>doesnotexist</directory></testResource></testResources>
+		
+    <testSourceDirectory>src/test/doesnotexist</testSourceDirectory>
 	</build>
 </project>
 
