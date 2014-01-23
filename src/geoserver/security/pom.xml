@@ -135,5 +135,9 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<testResources><testResource><directory>doesnotexist</directory></testResource></testResources>
+	</build>
 </project>
 
