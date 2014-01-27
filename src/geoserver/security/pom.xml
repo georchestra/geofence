@@ -135,5 +135,10 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		
+    <testSourceDirectory>src/test/doesnotexist</testSourceDirectory>
+	</build>
 </project>
 
