@@ -61,8 +61,6 @@ public class UserUI implements EntryPoint
     {
         dispatcher = Dispatcher.get();
         dispatcher.addController(new LoginController());
-        dispatcher.addController(new UsersController());
-        dispatcher.addController(new ProfilesController());
         dispatcher.addController(new InstanceController());
         dispatcher.addController(new RulesController());
         dispatcher.dispatch(GeofenceEvents.INIT_USER_UI_MODULE);

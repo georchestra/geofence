@@ -318,15 +318,6 @@ public class EditRuleWidget extends GeofenceFormWidget
         rulePriorityColumn.setSortable(true);
         configs.add(rulePriorityColumn);
 
-        ColumnConfig ruleUserColumn = new ColumnConfig();
-        ruleUserColumn.setId(BeanKeyValue.USER.getValue());
-        ruleUserColumn.setHeader("User");
-        ruleUserColumn.setWidth(COLUMN_USER_WIDTH);
-        ruleUserColumn.setRenderer(this.createUsersComboBox());
-        ruleUserColumn.setMenuDisabled(true);
-        ruleUserColumn.setSortable(false);
-        configs.add(ruleUserColumn);
-
         ColumnConfig ruleProfileColumn = new ColumnConfig();
         ruleProfileColumn.setId(BeanKeyValue.PROFILE.getValue());
         ruleProfileColumn.setHeader("Group");
