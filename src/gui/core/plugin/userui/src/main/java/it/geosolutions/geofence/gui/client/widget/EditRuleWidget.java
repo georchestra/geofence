@@ -819,7 +819,13 @@ public class EditRuleWidget extends GeofenceFormWidget
                         new BasePagingLoader<PagingLoadResult<ModelData>>(
                             profileProxy);
                     profilesLoader.setRemoteSort(false);
-                    availableProfiles = new ListStore<UserGroup>(profilesLoader);
+                    
+                    availableProfiles = new ListStore<UserGroup>(profilesLoader) {
+                        protected void onLoad(LoadEvent le) {
+                            super.onLoad(le);
+                            this.sort(BeanKeyValue.NAME.getValue(),SortDir.ASC);
+                        }
+                    };
 
                     return availableProfiles;
                 }
