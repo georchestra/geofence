@@ -40,17 +40,16 @@
 		<property name="attributesMapper" ref="geofenceLdapUserAttributesMapper" />
 		<property name="groupsAttributesMapper" ref="geofenceLdapUserGroupAttributesMapper" />
 		<property name="dao" ref="baseUserDAO" />
-        <property name="searchBase" value="${gsUserDAO.searchBase}" />
-        <property name="userDn" value="${gsUserDAO.userDn}" />
+        	<property name="searchBase" value="${gsUserDAO.searchBase}" />
+        	<property name="userDn" value="${gsUserDAO.userDn}" />
 	</bean>
 	
 	<bean id="userGroupDAO" class="it.geosolutions.geofence.ldap.dao.impl.UserGroupDAOLdapImpl">
 		<property name="ldapTemplate" ref="geofenceLdapTemplate" />
 		<property name="attributesMapper" ref="geofenceLdapUserGroupAttributesMapper" />
 		<property name="dao" ref="baseUserGroupDAO" />
+		<property name="searchFilter" value="${gsGroupDAO.searchFilter}" />
 	</bean>
-	
-	
 	
 	<bean id="ruleDAO" class="it.geosolutions.geofence.ldap.dao.impl.RuleDAOLdapImpl" >
 		<property name="searchProcessor" ref="geofenceSearchProcessor" />
@@ -59,17 +58,27 @@
 	</bean>
 	
 	<bean id="geofenceLdapUserAttributesMapper" class="it.geosolutions.geofence.ldap.dao.impl.GSUserAttributesMapper">
-	<property name="ldapAttributeMappings">
-		<map>
-			<entry key="id" value="${geofenceLdapUserAttributesMapper.id}"/>
-			<entry key="username" value="uid"/>
-			<entry key="email" value="mail"/>
-			<entry key="name" value="cn"/>
-			<entry key="surname" value="sn"/>    			
-			<entry key="password" value="userPassword"/>    	
-			<entry key="metadata.geometry" value="geometry"/>    			    		
-		</map>
-	</property>
-</bean>
+		<property name="ldapAttributeMappings">
+			<map>
+				<entry key="id" value="${geofenceLdapUserAttributesMapper.id}"/>
+				<entry key="username" value="uid"/>
+				<entry key="email" value="mail"/>
+				<entry key="name" value="cn"/>
+				<entry key="surname" value="sn"/>    			
+				<entry key="password" value="userPassword"/>    	
+				<entry key="metadata.geometry" value="geometry"/>    			    		
+			</map>
+		</property>
+	</bean>
+	<bean id="geofenceLdapUserGroupAttributesMapper" class="it.geosolutions.geofence.ldap.dao.impl.UserGroupAttributesMapper">
+    		<property name="ldapAttributeMappings">
+        		<map>
+        		    <entry key="id" value="${geofenceLdapUserGroupAttributesMapper.id}"/>
+        		    <entry key="groupname" value="cn"/>
+        		    <entry key="member" value="${geofenceLdapUserGroupAttributesMapper.member}"/>
+        		</map>
+    		</property>
+	</bean>
+
 
 </beans>
