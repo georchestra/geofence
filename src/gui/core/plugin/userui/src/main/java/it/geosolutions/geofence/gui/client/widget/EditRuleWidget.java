@@ -56,6 +56,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.extjs.gxt.ui.client.Style;
 import com.extjs.gxt.ui.client.Style.SelectionMode;
 import com.extjs.gxt.ui.client.Style.SortDir;
 import com.extjs.gxt.ui.client.data.BasePagingLoadResult;
@@ -1368,6 +1369,7 @@ public class EditRuleWidget extends GeofenceFormWidget
                     workspacesComboBox.setTypeAhead(true);
                     workspacesComboBox.setTriggerAction(TriggerAction.ALL);
                     workspacesComboBox.setWidth(120);
+                    workspacesComboBox.setMinListWidth(500);
 
                     if (model.getWorkspace() != null)
                     {
@@ -1928,6 +1930,7 @@ public class EditRuleWidget extends GeofenceFormWidget
             public void onSuccess(PagingLoadResult<Layer> result) {
                 layers.removeAll();
                 layers.add(result.getData());
+    			layers.sort("layer", Style.SortDir.ASC);
             }
         });
     }
