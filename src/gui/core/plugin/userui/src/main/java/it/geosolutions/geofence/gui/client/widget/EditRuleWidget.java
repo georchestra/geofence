@@ -1485,6 +1485,7 @@ public class EditRuleWidget extends GeofenceFormWidget
                     workspaceLayersComboBox.setTypeAhead(true);
                     workspaceLayersComboBox.setTriggerAction(TriggerAction.ALL);
                     workspaceLayersComboBox.setWidth(120);
+                    workspaceLayersComboBox.setMinListWidth(350);
 
                     if (model.getLayer() != null)
                     {
@@ -1906,6 +1907,7 @@ public class EditRuleWidget extends GeofenceFormWidget
                     public void onSuccess(PagingLoadResult<Workspace> result) {
                         workspaces.removeAll();
                         workspaces.add(result.getData());
+                        workspaces.sort("workspace", Style.SortDir.ASC);
                         
                         initializeLayers(gsInstance, model.getWorkspace(), model.getService());
                     }
