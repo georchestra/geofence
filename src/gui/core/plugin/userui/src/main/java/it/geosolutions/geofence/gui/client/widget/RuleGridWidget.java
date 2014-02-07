@@ -91,13 +91,13 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 	private static final int COLUMN_PRIORITY_WIDTH = 30;
 
 	/** The Constant COLUMN_USER_WIDTH. */
-	private static final int COLUMN_USER_WIDTH = 100; // 130;
+	private static final int COLUMN_USER_WIDTH = 80; // 130;
 
 	/** The Constant COLUMN_PROFILE_WIDTH. */
-	private static final int COLUMN_PROFILE_WIDTH = 80; // 160;
+	private static final int COLUMN_PROFILE_WIDTH = 180; // 160;
 
 	/** The Constant COLUMN_INSTANCE_WIDTH. */
-	private static final int COLUMN_INSTANCE_WIDTH = 150; // 60;
+	private static final int COLUMN_INSTANCE_WIDTH = 80; // 60;
 
 	/** The Constant COLUMN_SERVICE_WIDTH. */
 	private static final int COLUMN_SERVICE_WIDTH = 60; // 100;
@@ -1399,34 +1399,8 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 			protected boolean doSelect(Store<Rule> store, Rule parent,
 					Rule record, String property, String filter) {
 
-				String field = ((GSUser) parent.get(BeanKeyValue.USER
-						.getValue())).getName();
-				field = field.toLowerCase();
-				if (field.indexOf(filter.toLowerCase()) != -1) {
-					return true;
-				}
-
-				field = ((UserGroup) parent
+				String field = ((UserGroup) parent
 						.get(BeanKeyValue.PROFILE.getValue())).getName();
-				field = field.toLowerCase();
-				if (field.indexOf(filter.toLowerCase()) != -1) {
-					return true;
-				}
-
-				field = ((GSInstance) parent.get(BeanKeyValue.INSTANCE
-						.getValue())).getName();
-				field = field.toLowerCase();
-				if (field.indexOf(filter.toLowerCase()) != -1) {
-					return true;
-				}
-
-				field = parent.get(BeanKeyValue.SERVICE.getValue());
-				field = field.toLowerCase();
-				if (field.indexOf(filter.toLowerCase()) != -1) {
-					return true;
-				}
-
-				field = parent.get(BeanKeyValue.REQUEST.getValue());
 				field = field.toLowerCase();
 				if (field.indexOf(filter.toLowerCase()) != -1) {
 					return true;
@@ -1444,18 +1418,12 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 					return true;
 				}
 
-				field = parent.get(BeanKeyValue.GRANT.getValue());
-				field = field.toLowerCase();
-				if (field.indexOf(filter.toLowerCase()) != -1) {
-					return true;
-				}
-
 				return false;
 			}
 
 		};
 
-		filter.setWidth(130);
+		filter.setWidth(200);
 		filter.setIcon(Resources.ICONS.search());
 
 		// Bind the filter field to your grid store (grid.getStore())
