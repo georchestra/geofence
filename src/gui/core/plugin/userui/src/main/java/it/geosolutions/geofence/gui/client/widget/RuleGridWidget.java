@@ -106,10 +106,10 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 	private static final int COLUMN_REQUEST_WIDTH = 150; // 190;
 
 	/** The Constant COLUMN_WORKSPACE_WIDTH. */
-	private static final int COLUMN_WORKSPACE_WIDTH = 100; // 130;
+	private static final int COLUMN_WORKSPACE_WIDTH = 180; // 130;
 
 	/** The Constant COLUMN_LAYER_WIDTH. */
-	private static final int COLUMN_LAYER_WIDTH = 110; // 130;
+	private static final int COLUMN_LAYER_WIDTH = 180; // 130;
 
 	/** The Constant COLUMN_GRANT_WIDTH. */
 	private static final int COLUMN_GRANT_WIDTH = 80; // 100;
@@ -254,8 +254,8 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		ruleUserColumn.setHeader("User");
 		ruleUserColumn.setWidth(COLUMN_USER_WIDTH);
 		ruleUserColumn.setRenderer(this.createUsersCustomField()); // CustomField//createUsersComboBox
-		ruleUserColumn.setMenuDisabled(true);
-		ruleUserColumn.setSortable(false);
+		ruleUserColumn.setMenuDisabled(false);
+		ruleUserColumn.setSortable(true);
 		configs.add(ruleUserColumn);
 
 		ColumnConfig ruleProfileColumn = new ColumnConfig();
@@ -263,8 +263,8 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		ruleProfileColumn.setHeader("Group");
 		ruleProfileColumn.setWidth(COLUMN_PROFILE_WIDTH);
 		ruleProfileColumn.setRenderer(this.createProfilesCustomField()); // createProfilesComboBox
-		ruleProfileColumn.setMenuDisabled(true);
-		ruleProfileColumn.setSortable(false);
+		ruleProfileColumn.setMenuDisabled(false);
+		ruleProfileColumn.setSortable(true);
 		configs.add(ruleProfileColumn);
 
 		ColumnConfig ruleInstanceColumn = new ColumnConfig();
@@ -272,8 +272,8 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		ruleInstanceColumn.setHeader("Instance");
 		ruleInstanceColumn.setWidth(COLUMN_INSTANCE_WIDTH);
 		ruleInstanceColumn.setRenderer(this.createInstancesCustomField()); // createInstancesComboBox
-		ruleInstanceColumn.setMenuDisabled(true);
-		ruleInstanceColumn.setSortable(false);
+		ruleInstanceColumn.setMenuDisabled(false);
+		ruleInstanceColumn.setSortable(true);
 		configs.add(ruleInstanceColumn);
 
 		ColumnConfig ruleServiceColumn = new ColumnConfig();
@@ -291,8 +291,8 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		ruleServiceRequestColumn.setWidth(COLUMN_REQUEST_WIDTH);
 		ruleServiceRequestColumn.setRenderer(this
 				.createServicesRequestCustomField()); // createServicesRequestComboBox
-		ruleServiceRequestColumn.setMenuDisabled(true);
-		ruleServiceRequestColumn.setSortable(false);
+		ruleServiceRequestColumn.setMenuDisabled(false);
+		ruleServiceRequestColumn.setSortable(true);
 		configs.add(ruleServiceRequestColumn);
 
 		ColumnConfig ruleServiceWorkspacesColumn = new ColumnConfig();
@@ -301,8 +301,8 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		ruleServiceWorkspacesColumn.setWidth(COLUMN_WORKSPACE_WIDTH);
 		ruleServiceWorkspacesColumn.setRenderer(this
 				.createServiceWorkspacesCustomField());
-		ruleServiceWorkspacesColumn.setMenuDisabled(true);
-		ruleServiceWorkspacesColumn.setSortable(false);
+		ruleServiceWorkspacesColumn.setMenuDisabled(false);
+		ruleServiceWorkspacesColumn.setSortable(true);
 		configs.add(ruleServiceWorkspacesColumn);
 
 		ColumnConfig ruleWorkspaceLayersColumn = new ColumnConfig();
@@ -311,8 +311,8 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		ruleWorkspaceLayersColumn.setWidth(COLUMN_LAYER_WIDTH);
 		ruleWorkspaceLayersColumn.setRenderer(this
 				.createWorkspacesLayersCustomField());
-		ruleWorkspaceLayersColumn.setMenuDisabled(true);
-		ruleWorkspaceLayersColumn.setSortable(false);
+		ruleWorkspaceLayersColumn.setMenuDisabled(false);
+		ruleWorkspaceLayersColumn.setSortable(true);
 		configs.add(ruleWorkspaceLayersColumn);
 
 		ColumnConfig ruleGrantsColumn = new ColumnConfig();
@@ -320,8 +320,8 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		ruleGrantsColumn.setHeader("Grant");
 		ruleGrantsColumn.setWidth(COLUMN_GRANT_WIDTH);
 		ruleGrantsColumn.setRenderer(this.createGrantsCustomField());
-		ruleGrantsColumn.setMenuDisabled(true);
-		ruleGrantsColumn.setSortable(false);
+		ruleGrantsColumn.setMenuDisabled(false);
+		ruleGrantsColumn.setSortable(true);
 		configs.add(ruleGrantsColumn);
 
 		ColumnConfig editRuleColumn = new ColumnConfig();
