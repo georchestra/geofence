@@ -10,7 +10,7 @@ import it.geosolutions.geofence.gui.client.model.Rule;
 
 public class Constants {
 
-    public final static int DEFAULT_PAGESIZE = 25;
+    public final static int DEFAULT_PAGESIZE = 100;
 
     public static final int NORTH_PANEL_DIMENSION = 30;
 

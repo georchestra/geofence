@@ -97,6 +97,20 @@ public class RulesManagerServiceImpl implements IRulesManagerService {
 	/** The geofence remote service. */
 	@Autowired
 	private GeofenceRemoteService geofenceRemoteService;
+	
+	private String groupFilter;
+	private String wsFilter;
+	private String layerFilter;
+	
+    public void setGroupFilter(String ruleFilter) {
+    	this.groupFilter = ruleFilter;
+    }
+    public void setWsFilter(String ruleFilter) {
+    	this.wsFilter = ruleFilter;
+    }
+    public void setLayerFilter(String ruleFilter) {
+    	this.layerFilter = ruleFilter;
+    }
 
 	/*
 	 * (non-Javadoc)
@@ -115,12 +129,23 @@ public class RulesManagerServiceImpl implements IRulesManagerService {
 				.getCountAll();
 
 		Long t = new Long(rulesCount);
-
+		
 		int page = (start == 0) ? start : (start / limit);
 
 		RuleFilter any = new RuleFilter(SpecialFilterType.ANY);
+		if(groupFilter != null) {
+			any.setUserGroup(groupFilter);
+		}
+		if(wsFilter != null) {
+			any.setWorkspace(wsFilter);
+		}
+		if(layerFilter != null) {
+			any.setLayer(layerFilter);
+		}
+		
 		List<ShortRule> rulesList = geofenceRemoteService.getRuleAdminService()
 				.getList(any, page, limit);
+		
 
 		if (rulesList == null) {
 			if (logger.isErrorEnabled()) {
@@ -128,7 +153,7 @@ public class RulesManagerServiceImpl implements IRulesManagerService {
 			}
 			throw new ApplicationException("No rule found on server");
 		}
-
+		
 		Iterator<ShortRule> it = rulesList.iterator();
 
 		while (it.hasNext()) {

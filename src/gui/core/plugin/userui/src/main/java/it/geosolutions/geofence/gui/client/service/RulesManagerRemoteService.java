@@ -67,7 +67,10 @@ public interface RulesManagerRemoteService extends RemoteService
      */
     public PagingLoadResult<Rule> getRules(int offset, int limit, boolean full) throws ApplicationException;
 
-
+    public void setGroupFilter(String filter);
+    public void setWsFilter(String filter);
+    public void setLayerFilter(String filter);
+    
     /**
      * Save rule
      *

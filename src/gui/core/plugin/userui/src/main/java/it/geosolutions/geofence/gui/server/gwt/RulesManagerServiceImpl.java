@@ -47,6 +47,7 @@ import it.geosolutions.geofence.gui.client.model.data.LayerStyle;
 import it.geosolutions.geofence.gui.client.service.RulesManagerRemoteService;
 import it.geosolutions.geofence.gui.server.service.IRulesManagerService;
 import it.geosolutions.geofence.gui.spring.ApplicationContextUtil;
+import it.geosolutions.geofence.services.dto.RuleFilter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,7 +68,7 @@ public class RulesManagerServiceImpl extends RemoteServiceServlet implements Rul
 
     /** The rules manager service. */
     private IRulesManagerService rulesManagerService;
-
+    
     /**
      * Instantiates a new rules manager service impl.
      */
@@ -229,5 +230,15 @@ public class RulesManagerServiceImpl extends RemoteServiceServlet implements Rul
     public LayerLimitsInfo getLayerLimitsInfo(Rule rule) throws ApplicationException
     {
         return rulesManagerService.getLayerLimitsInfo(rule);
+    }
+
+    public void setGroupFilter(String filter){
+    	rulesManagerService.setGroupFilter(filter);
+    }
+    public void setWsFilter(String filter){
+    	rulesManagerService.setWsFilter(filter);
+    }
+    public void setLayerFilter(String filter){
+    	rulesManagerService.setLayerFilter(filter);
     }
 }

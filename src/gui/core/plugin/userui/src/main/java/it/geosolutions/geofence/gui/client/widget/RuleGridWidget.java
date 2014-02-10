@@ -37,8 +37,6 @@ import it.geosolutions.geofence.gui.client.GeofenceEvents;
 import it.geosolutions.geofence.gui.client.Resources;
 import it.geosolutions.geofence.gui.client.i18n.I18nProvider;
 import it.geosolutions.geofence.gui.client.model.BeanKeyValue;
-import it.geosolutions.geofence.gui.client.model.GSInstance;
-import it.geosolutions.geofence.gui.client.model.GSUser;
 import it.geosolutions.geofence.gui.client.model.UserGroup;
 import it.geosolutions.geofence.gui.client.model.Rule;
 import it.geosolutions.geofence.gui.client.service.GsUsersManagerRemoteServiceAsync;
@@ -61,6 +59,7 @@ import com.extjs.gxt.ui.client.data.PagingLoader;
 import com.extjs.gxt.ui.client.data.RpcProxy;
 import com.extjs.gxt.ui.client.event.ButtonEvent;
 import com.extjs.gxt.ui.client.event.Events;
+import com.extjs.gxt.ui.client.event.FieldEvent;
 import com.extjs.gxt.ui.client.event.GridEvent;
 import com.extjs.gxt.ui.client.event.Listener;
 import com.extjs.gxt.ui.client.event.LoadListener;
@@ -72,6 +71,7 @@ import com.extjs.gxt.ui.client.widget.BoxComponent;
 import com.extjs.gxt.ui.client.widget.MessageBox;
 import com.extjs.gxt.ui.client.widget.button.Button;
 import com.extjs.gxt.ui.client.widget.form.LabelField;
+import com.extjs.gxt.ui.client.widget.form.TextField;
 import com.extjs.gxt.ui.client.widget.grid.ColumnConfig;
 import com.extjs.gxt.ui.client.widget.grid.ColumnData;
 import com.extjs.gxt.ui.client.widget.grid.ColumnModel;
@@ -164,7 +164,7 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 
 	/** The button rendered. */
 	private GridCellRenderer<Rule> buttonRendered;
-
+	
 	/**
 	 * Instantiates a new rule grid widget.
 	 * 
@@ -1367,7 +1367,7 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 	public void createStore() {
 		this.toolBar = new PagingToolBar(
 				it.geosolutions.geofence.gui.client.Constants.DEFAULT_PAGESIZE);
-
+		
 		// Loader for rulesService
 		this.proxy = new RpcProxy<PagingLoadResult<Rule>>() {
 
@@ -1376,10 +1376,9 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 					AsyncCallback<PagingLoadResult<Rule>> callback) {
 				rulesService.getRules(
 						((PagingLoadConfig) loadConfig).getOffset(),
-						((PagingLoadConfig) loadConfig).getLimit(), false,
+						((PagingLoadConfig) loadConfig).getLimit(), true,
 						callback);
 			}
-
 		};
 		loader = new BasePagingLoader<PagingLoadResult<ModelData>>(proxy);
 		loader.setRemoteSort(false);
@@ -1449,10 +1448,45 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 
 			}
 		});
+		
+		TextField<String> groupTextFiled = new TextField<String>();
+		groupTextFiled.setFieldLabel("Group");
+		groupTextFiled.setEmptyText("Group");
+		groupTextFiled.setAllowBlank(true);
+		groupTextFiled.setMinLength(2);
+		groupTextFiled.addListener(Events.Change, new Listener<FieldEvent>() {
+			public void handleEvent(FieldEvent fe) {
+				rulesService.setGroupFilter((String)fe.getField().getValue(), null);
+			}
+		});
+		TextField<String> wsTextFiled = new TextField<String>();
+		wsTextFiled.setFieldLabel("Workspace");
+		wsTextFiled.setEmptyText("Worspace");
+		wsTextFiled.setAllowBlank(true);
+		wsTextFiled.setMinLength(2);
+		wsTextFiled.addListener(Events.Change, new Listener<FieldEvent>() {
+			public void handleEvent(FieldEvent fe) {
+				rulesService.setWsFilter((String)fe.getField().getValue(), null);
+			}
+		});
+		TextField<String> layerTextFiled = new TextField<String>();
+		layerTextFiled.setFieldLabel("Layer");
+		layerTextFiled.setEmptyText("Layer");
+		layerTextFiled.setAllowBlank(true);
+		layerTextFiled.setMinLength(2);
+		layerTextFiled.addListener(Events.Change, new Listener<FieldEvent>() {
+			public void handleEvent(FieldEvent fe) {
+				rulesService.setLayerFilter((String)fe.getField().getValue(), null);
+			}
+		});
 
 		this.toolBar.bind(loader);
 		this.toolBar.add(new SeparatorToolItem());
 		this.toolBar.add(addRuleButton);
+		this.toolBar.add(new SeparatorToolItem());
+		this.toolBar.add(groupTextFiled);
+		this.toolBar.add(wsTextFiled);
+		this.toolBar.add(layerTextFiled);
 		this.toolBar.add(new SeparatorToolItem());
 		this.toolBar.add(filter);
 		this.toolBar.add(new SeparatorToolItem());
