@@ -47,7 +47,6 @@ import it.geosolutions.geofence.gui.client.model.data.LayerStyle;
 import it.geosolutions.geofence.gui.client.service.RulesManagerRemoteService;
 import it.geosolutions.geofence.gui.server.service.IRulesManagerService;
 import it.geosolutions.geofence.gui.spring.ApplicationContextUtil;
-import it.geosolutions.geofence.services.dto.RuleFilter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,9 +83,10 @@ public class RulesManagerServiceImpl extends RemoteServiceServlet implements Rul
      * it.geosolutions.geofence.gui.client.service.ProfilesManagerRemoteService#getRules(com.extjs
      * .gxt.ui.client.data.PagingLoadConfig)
      */
-    public PagingLoadResult<Rule> getRules(int offset, int limit, boolean full) throws ApplicationException
+    public PagingLoadResult<Rule> getRules(int offset, int limit, boolean full, String groupFilter,
+            String wsFilter, String layerFilter) throws ApplicationException
     {
-        PagingLoadResult<Rule> ret = rulesManagerService.getRules(offset, limit, full);
+        PagingLoadResult<Rule> ret = rulesManagerService.getRules(offset, limit, full, groupFilter, wsFilter, layerFilter);
 
         return ret;
     }
@@ -230,15 +230,5 @@ public class RulesManagerServiceImpl extends RemoteServiceServlet implements Rul
     public LayerLimitsInfo getLayerLimitsInfo(Rule rule) throws ApplicationException
     {
         return rulesManagerService.getLayerLimitsInfo(rule);
-    }
-
-    public void setGroupFilter(String filter){
-    	rulesManagerService.setGroupFilter(filter);
-    }
-    public void setWsFilter(String filter){
-    	rulesManagerService.setWsFilter(filter);
-    }
-    public void setLayerFilter(String filter){
-    	rulesManagerService.setLayerFilter(filter);
     }
 }

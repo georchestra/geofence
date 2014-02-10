@@ -165,6 +165,10 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 	/** The button rendered. */
 	private GridCellRenderer<Rule> buttonRendered;
 	
+	/** grid filters **/
+	private String groupFilter;
+	private String wsFilter;
+	private String layerFilter;
 	/**
 	 * Instantiates a new rule grid widget.
 	 * 
@@ -1377,6 +1381,7 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 				rulesService.getRules(
 						((PagingLoadConfig) loadConfig).getOffset(),
 						((PagingLoadConfig) loadConfig).getLimit(), true,
+						groupFilter, wsFilter, layerFilter,
 						callback);
 			}
 		};
@@ -1456,7 +1461,7 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		groupTextFiled.setMinLength(2);
 		groupTextFiled.addListener(Events.Change, new Listener<FieldEvent>() {
 			public void handleEvent(FieldEvent fe) {
-				rulesService.setGroupFilter((String)fe.getField().getValue(), null);
+				groupFilter = (String)fe.getField().getValue();
 			}
 		});
 		TextField<String> wsTextFiled = new TextField<String>();
@@ -1466,7 +1471,7 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		wsTextFiled.setMinLength(2);
 		wsTextFiled.addListener(Events.Change, new Listener<FieldEvent>() {
 			public void handleEvent(FieldEvent fe) {
-				rulesService.setWsFilter((String)fe.getField().getValue(), null);
+				wsFilter = (String)fe.getField().getValue();
 			}
 		});
 		TextField<String> layerTextFiled = new TextField<String>();
@@ -1476,7 +1481,7 @@ public class RuleGridWidget extends GeofenceGridWidget<Rule> {
 		layerTextFiled.setMinLength(2);
 		layerTextFiled.addListener(Events.Change, new Listener<FieldEvent>() {
 			public void handleEvent(FieldEvent fe) {
-				rulesService.setLayerFilter((String)fe.getField().getValue(), null);
+				layerFilter = (String)fe.getField().getValue();
 			}
 		});
 

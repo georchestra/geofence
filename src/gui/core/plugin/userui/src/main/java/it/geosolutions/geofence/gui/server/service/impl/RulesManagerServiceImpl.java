@@ -67,8 +67,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -82,7 +80,6 @@ import com.vividsolutions.jts.geom.MultiPolygon;
 import com.vividsolutions.jts.geom.Polygon;
 import com.vividsolutions.jts.io.ParseException;
 import com.vividsolutions.jts.io.WKTReader;
-import java.util.Collections;
 import org.springframework.dao.DuplicateKeyException;
 
 /**
@@ -98,20 +95,6 @@ public class RulesManagerServiceImpl implements IRulesManagerService {
 	@Autowired
 	private GeofenceRemoteService geofenceRemoteService;
 	
-	private String groupFilter;
-	private String wsFilter;
-	private String layerFilter;
-	
-    public void setGroupFilter(String ruleFilter) {
-    	this.groupFilter = ruleFilter;
-    }
-    public void setWsFilter(String ruleFilter) {
-    	this.wsFilter = ruleFilter;
-    }
-    public void setLayerFilter(String ruleFilter) {
-    	this.layerFilter = ruleFilter;
-    }
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -119,18 +102,13 @@ public class RulesManagerServiceImpl implements IRulesManagerService {
 	 * it.geosolutions.geofence.gui.server.service.IFeatureService#loadFeature
 	 * (com.extjs.gxt.ui. client.data.PagingLoadConfig, java.lang.String)
 	 */
-	public PagingLoadResult<Rule> getRules(int offset, int limit, boolean full)
+    public PagingLoadResult<Rule> getRules(int offset, int limit, boolean full, String groupFilter,
+            String wsFilter, String layerFilter) 
 			throws ApplicationException {
 		int start = offset;
 
 		List<Rule> ruleListDTO = new ArrayList<Rule>();
 
-		long rulesCount = geofenceRemoteService.getRuleAdminService()
-				.getCountAll();
-
-		Long t = new Long(rulesCount);
-		
-		int page = (start == 0) ? start : (start / limit);
 
 		RuleFilter any = new RuleFilter(SpecialFilterType.ANY);
 		if(groupFilter != null) {
@@ -143,6 +121,13 @@ public class RulesManagerServiceImpl implements IRulesManagerService {
 			any.setLayer(layerFilter);
 		}
 		
+		long rulesCount = geofenceRemoteService.getRuleAdminService()
+				.count(any);
+
+		Long t = new Long(rulesCount);
+		
+		int page = (start == 0) ? start : (start / limit);
+
 		List<ShortRule> rulesList = geofenceRemoteService.getRuleAdminService()
 				.getList(any, page, limit);
 		
