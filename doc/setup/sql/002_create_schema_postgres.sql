@@ -188,19 +188,19 @@
     create sequence hibernate_sequence;
 
 --GRANTS
-alter table gf_gfuser owner to geofence;
-alter table gf_rule_limits owner to geofence;
-alter table gf_layer_styles owner to geofence;
-alter table gf_layer_custom_props owner to geofence;
-alter table gf_layer_attributes owner to geofence;
-alter table gf_layer_details owner to geofence;
-alter table gf_rule owner to geofence;
-alter table gf_gsuser owner to geofence;
-alter table gf_gsinstance owner to geofence;
-alter table gf_user_usergroups owner to geofence;
-alter table gf_usergroup owner to geofence;
+--alter table gf_gfuser owner to geofence;
+--alter table gf_rule_limits owner to geofence;
+--alter table gf_layer_styles owner to geofence;
+--alter table gf_layer_custom_props owner to geofence;
+--alter table gf_layer_attributes owner to geofence;
+--alter table gf_layer_details owner to geofence;
+--alter table gf_rule owner to geofence;
+--alter table gf_gsuser owner to geofence;
+--alter table gf_gsinstance owner to geofence;
+--alter table gf_user_usergroups owner to geofence;
+--alter table gf_usergroup owner to geofence;
 
-alter sequence hibernate_sequence owner to geofence;
+--alter sequence hibernate_sequence owner to geofence;
 
 --DEFAULTS
 insert into geofence.gf_gfuser(id, datecreation, emailaddress, enabled, extid, fullname, "name", "password") values (0, 'now', null, true, 0, 'admin', 'admin', '21232f297a57a5a743894ae4a801fc3');
