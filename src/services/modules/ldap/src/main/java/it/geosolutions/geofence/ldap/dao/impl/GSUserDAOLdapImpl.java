@@ -44,13 +44,14 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
 		
 	private String groupsBase = "ou=Groups";
 	
-	private AttributesMapper groupsAttributesMapper;	
-	String userDn = "uid=%s,ou=People";	
-	
-	private final String GEORCHESTRA_ADMIN_GROUP = "ADMINISTRATOR";
-	
-	
-	/**
+	private AttributesMapper groupsAttributesMapper;
+	String userDn = "uid=%s,ou=People";
+    private String groupMemberValue = "%s";
+
+    private final String GEORCHESTRA_ADMIN_GROUP = "ADMINISTRATOR";
+
+
+    /**
 	 * 
 	 */
 	public GSUserDAOLdapImpl() {
@@ -86,7 +87,7 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
 	 * Sets the AttributeMapper used to build UserGroup objects from LDAP
 	 * objects.
 	 * 
-	 * @param groupsAttributesMapper the groupsAttributesMapper to set
+         * @param groupsAttributesMapper the groupsAttributesMapper to set
 	 */
 	public void setGroupsAttributesMapper(AttributesMapper groupsAttributesMapper) {
 		this.groupsAttributesMapper = groupsAttributesMapper;
@@ -109,7 +110,7 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
 	 */
 	private Set<UserGroup> getGroups(GSUser user) {	
 		Set<UserGroup> groups = new HashSet<UserGroup>();
-		Filter filter = new Filter("member", user.getName());
+        Filter filter = new Filter("member", String.format(groupMemberValue, user.getName()));
 		List<UserGroup> groupsList = search(groupsBase, filter, groupsAttributesMapper);				
 		groups.addAll(groupsList);
 		return groups;
@@ -156,5 +157,9 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
 		user.setGroups(getGroups(user));
 		setGeorchestraAdmin(user);
 		return user;
-	}	
+	}
+
+    public void setGroupMemberValue(String groupMemberValue) {
+        this.groupMemberValue = groupMemberValue;
+    }
 }
