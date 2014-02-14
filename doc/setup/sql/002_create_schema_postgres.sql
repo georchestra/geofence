@@ -1,4 +1,8 @@
-﻿set search_path to geofence;
+﻿begin;
+
+create schema geofence;
+
+set search_path to geofence;
 
 -- CLEAN-UP
 --drop table gf_gfuser cascade;
@@ -204,3 +208,5 @@
 
 --DEFAULTS
 insert into geofence.gf_gfuser(id, datecreation, emailaddress, enabled, extid, fullname, "name", "password") values (0, 'now', null, true, 0, 'admin', 'admin', '21232f297a57a5a743894ae4a801fc3');
+
+commit;
