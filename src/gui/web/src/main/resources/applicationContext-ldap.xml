@@ -42,6 +42,7 @@
 		<property name="dao" ref="baseUserDAO" />
         <property name="searchBase" value="${gsUserDAO.searchBase}" />
         <property name="userDn" value="${gsUserDAO.userDn}" />
+        <property name="groupMemberValue" value="${gsUserDAO.groupMemberValue}" />
 	</bean>
 	
 	<bean id="userGroupDAO" class="it.geosolutions.geofence.ldap.dao.impl.UserGroupDAOLdapImpl">
