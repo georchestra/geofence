@@ -614,7 +614,16 @@ public class RuleReaderServiceImpl implements RuleReaderService {
         Search searchCriteria = new Search(Rule.class);
         searchCriteria.addSortAsc("priority");
         addCriteria(searchCriteria, "gsuser", filter.getUser());
-        addCriteria(searchCriteria, "userGroup", groupFilter);
+        if (groupFilter.getType() == FilterType.IDVALUE) {
+            searchCriteria.addFilterOr(
+                    Filter.isNull("userGroup"),
+                    Filter.equal("userGroup.id", groupFilter.getId()),
+                    // if the usergroup is from ldap then we need to check the extId as well
+                    Filter.equal("userGroup.extId", "-"+groupFilter.getId()));
+
+        } else {
+            addCriteria(searchCriteria, "userGroup", groupFilter);
+        }
         addCriteria(searchCriteria, "instance", filter.getInstance());
         addStringCriteria(searchCriteria, "service", filter.getService()); // see class' javadoc
         addStringCriteria(searchCriteria, "request", filter.getRequest()); // see class' javadoc
