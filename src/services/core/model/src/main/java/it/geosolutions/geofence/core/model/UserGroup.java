@@ -69,7 +69,7 @@ public class UserGroup implements Identifiable, Serializable {
 
     /** The id. */
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column
     private Long id;
 
