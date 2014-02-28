@@ -621,6 +621,9 @@ public class RuleReaderServiceImpl implements RuleReaderService {
                     // if the usergroup is from ldap then we need to check the extId as well
                     Filter.equal("userGroup.extId", "-"+groupFilter.getId()));
 
+        } else if (groupFilter.getType() == FilterType.ANY){
+            // to prevent the case there is no group then it can only match rules with null usergroup
+            searchCriteria.addFilter(Filter.isNull("userGroup"));
         } else {
             addCriteria(searchCriteria, "userGroup", groupFilter);
         }
