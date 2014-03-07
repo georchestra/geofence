@@ -176,4 +176,3 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
     }
 
 }
-}
