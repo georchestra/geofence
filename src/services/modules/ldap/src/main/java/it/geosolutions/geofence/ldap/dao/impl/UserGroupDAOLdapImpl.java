@@ -54,7 +54,7 @@ public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implem
             ids.put(entity.getExtId(), entity);
         }
         final Search search = new Search();
-        search.addFilter(Filter.in("extId", ids));
+        search.addFilter(Filter.in("extId", ids.keySet()));
         final List<UserGroup> userGroups = dao.search(search);
         for (UserGroup userGroup : userGroups) {
             ids.get(userGroup.getExtId()).setId(userGroup.getId());

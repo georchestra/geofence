@@ -168,7 +168,7 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
             ids.put(entity.getExtId(), entity);
         }
         final Search search = new Search();
-        search.addFilter(Filter.in("extId", ids));
+        search.addFilter(Filter.in("extId", ids.keySet()));
         final List<GSUser> userGroups = dao.search(search);
         for (GSUser userGroup : userGroups) {
             ids.get(userGroup.getExtId()).setId(userGroup.getId());
