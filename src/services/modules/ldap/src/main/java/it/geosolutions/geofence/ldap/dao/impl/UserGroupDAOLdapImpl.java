@@ -19,8 +19,15 @@
  */
 package it.geosolutions.geofence.ldap.dao.impl;
 
+import com.googlecode.genericdao.search.Filter;
+import com.googlecode.genericdao.search.Search;
 import it.geosolutions.geofence.core.dao.UserGroupDAO;
 import it.geosolutions.geofence.core.model.UserGroup;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * UserGroupDAO implementation, using an LDAP server as a primary source, and the original
@@ -39,4 +46,18 @@ public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implem
 		setSearchBase("ou=Groups");
 		setSearchFilter("objectClass=posixGroup");
 	}
+
+    @Override
+    protected void updateIdsFromDatabase(List<UserGroup> list) {
+        Map<String, UserGroup> ids = new HashMap<String, UserGroup>();
+        for (UserGroup entity : list) {
+            ids.put(entity.getExtId(), entity);
+        }
+        final Search search = new Search();
+        search.addFilter(Filter.in("extId", ids));
+        final List<UserGroup> userGroups = dao.search(search);
+        for (UserGroup userGroup : userGroups) {
+            ids.get(userGroup.getExtId()).setId(userGroup.getId());
+        }
+    }
 }

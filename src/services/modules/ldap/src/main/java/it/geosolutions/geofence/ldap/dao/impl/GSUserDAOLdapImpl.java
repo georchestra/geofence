@@ -19,14 +19,12 @@
  */
 package it.geosolutions.geofence.ldap.dao.impl;
 
+import com.googlecode.genericdao.search.Search;
 import it.geosolutions.geofence.core.dao.GSUserDAO;
 import it.geosolutions.geofence.core.model.GSUser;
 import it.geosolutions.geofence.core.model.UserGroup;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.Iterator;
+import java.util.*;
 
 import org.springframework.ldap.core.AttributesMapper;
 
@@ -162,4 +160,20 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
     public void setGroupMemberValue(String groupMemberValue) {
         this.groupMemberValue = groupMemberValue;
     }
+
+    @Override
+    protected void updateIdsFromDatabase(List<GSUser> list) {
+        Map<String, GSUser> ids = new HashMap<String, GSUser>();
+        for (GSUser entity : list) {
+            ids.put(entity.getExtId(), entity);
+        }
+        final Search search = new Search();
+        search.addFilter(Filter.in("extId", ids));
+        final List<GSUser> userGroups = dao.search(search);
+        for (GSUser userGroup : userGroups) {
+            ids.get(userGroup.getExtId()).setId(userGroup.getId());
+        }
+    }
+
+}
 }

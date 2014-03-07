@@ -23,6 +23,7 @@ import it.geosolutions.geofence.core.dao.RestrictedGenericDAO;
 import it.geosolutions.geofence.dao.utils.LdapUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.ldap.core.AttributesMapper;
@@ -175,7 +176,9 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	 * @return
 	 */
 	public R lookup(String dn) {
-		return (R)ldapTemplate.lookup(dn, attributesMapper);
+        final R object = (R) ldapTemplate.lookup(dn, attributesMapper);
+        updateIdsFromDatabase(Arrays.asList(object));
+        return object;
 	}
 	
 	/**
@@ -223,7 +226,9 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	 * @return
 	 */
 	public List search(String base, Filter filter, AttributesMapper mapper) {
-		return LdapUtils.search(ldapTemplate, base, filter, mapper);
+        final List list = LdapUtils.search(ldapTemplate, base, filter, mapper);
+        updateIdsFromDatabase(list);
+        return list;
 	}
 	
 	/**
@@ -237,10 +242,14 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	 * @return
 	 */
 	public List search(String base, String filter, AttributesMapper mapper) {
-		return LdapUtils.search(ldapTemplate, base, filter, mapper);	
+        final List list = LdapUtils.search(ldapTemplate, base, filter, mapper);
+        updateIdsFromDatabase(list);
+        return list;
 	}
-	
-	/**
+
+    protected abstract void updateIdsFromDatabase(List<R> list);
+
+    /**
 	 * Search using the given filter on the LDAP server.
 	 * Uses default base, filter and mapper.
 	 * 
@@ -265,6 +274,5 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	public List search(String filter) {
 		return search(searchBase, filter, attributesMapper);		
 	}
-	
-	
+
 }
