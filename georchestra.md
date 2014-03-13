@@ -93,6 +93,41 @@ Note also that there is a [proposal](https://github.com/geosolutions-it/geofence
 By default, **GeoFence** allow you to restrict a layer visibility on a geometry, you can add this constraint into the rule definition itself.
 
 In geOrchestra, you can extend this by setting a geometry to each user in LDAP. If a user has a geometry in his LDAP definition, then all layers can be restricted to that geometry by defining only one rule.
-This is explained here : [Documentation](https://github.com/NielsCharlier/geofence/wiki/Storing-Geometries-in-LDAP)
 
 **Important:** Note that the geometry is defined as a WKT geometry. The projection has to be the same as the native projection of the layer into GeoServer, otherwise the rule won't be correctly applied.
+
+
+Mapping the Geometry fields in LDAP to Geofence
+
+See [LDAP module advanced configuration](https://github.com/geosolutions-it/geofence/wiki/LDAP-module#advanced-configuration) for general information on how to map LDAP attributes to Geofence.
+Additionally to the general attributes, we may specify custom MetaData fields. Assuming that the LDAP user objects have two attributes called 'geometry1' and 'geometry2' we may do as follows ::
+```
+   <bean id="geofenceLdapUserAttributesMapper"
+    class="it.geosolutions.geofence.ldap.dao.impl.GSUserAttributesMapper">
+ 	<property name="ldapAttributeMappings">
+ 		<map>
+ 			<entry key="id" value="uidNumber"/>
+  			<entry key="username" value="uid"/>			
+                        <entry key="email" value="mail"/>
+			<entry key="name" value="cn"/>
+			<entry key="surname" value="sn"/>    			
+ 			<entry key="password" value="userPassword"/>  
+                        <entry key="metadata.geometry1" value="geometry1"/>    			    		
+                        <entry key="metadata.geometry2" value="geometry2"/>    			    			    		
+ 		</map>
+ 	 </property>
+   </bean>
+```
+These LDAP attributes now become available in geofence.
+
+
+Making a rule 
+
+See [Rules](https://github.com/geosolutions-it/geofence/wiki/General-concepts#rules) for general information on how to create Rules in Geofence.
+
+Additionally, it is possible to create one rule that restricts access to an area specified in the Metadata field of each user.
+
+1. Create an ALLOW rule for the desired service, layer,.. Do not specify a user.
+2. Open the 'Layer Details' form
+3. In the 'Allowed Area Metadata Field' textbox, fill in the name of the metadata field that contains the correct geometry (not including the 'metadata.' prefix here).
+ 
