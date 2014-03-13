@@ -78,6 +78,7 @@ set search_path to geofence;
         cqlFilterRead varchar(4000),
         cqlFilterWrite varchar(4000),
         defaultStyle varchar(255),
+        areaMetadataField varchar(255),
         type varchar(255),
         rule_id int8 not null,
         primary key (id),
