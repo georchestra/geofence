@@ -64,7 +64,7 @@ Edit the file *data_dir_path*/security/auth/default/config.xml, and change the c
   
           <className>it.geosolutions.geoserver.authentication.auth.GeofenceAuthenticationProvider</className>
 
-* Enable REST services
+* Enable REST services (see http://docs.geoserver.org/stable/en/user/security/rest.html)
 
 Start with GeoFence
 --------------------
