@@ -77,8 +77,14 @@ Start with GeoFence
 ###Web Interface
 ####Users and groups
 Once logged in the web interface, You can see users and groups tabs, with data from your LDAP. Groups and users are on read only here. The LDAP access will be done each time to load the UI (which can be quite slow depending of the amount of users).
-#### Instance
-You can manage several geoserver instances within the same geofence. You have to create an instance of your geochestra geoserver in the instance tab. Buy default, geoserver instance name is *default-gs*. You need to specify a user that is ADMINISTRATOR of the geoserver when creating the instance.
+
+#### Instances
+You can manage several geoserver instances within the same geofence. 
+
+You have to create an instance of your georchestra geoserver in the instance tab. By default, geofence will look for an instance called *default-gs*, so it is **highly recommenced** that you name your instance as such ! 
+
+You will also have to specify a user that is ADMINISTRATOR of the geoserver (eg: your ```shared.privileged.geoserver.user```, which is "extractorapp_privileged_admin" by default, is a good candidate). 
+
 #### Rules
 You can specify you security rules in the rules tab.
 
