@@ -25,6 +25,7 @@ import it.geosolutions.geofence.core.model.GSUser;
 import it.geosolutions.geofence.core.model.UserGroup;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.ldap.core.AttributesMapper;
 
@@ -161,8 +162,10 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
         this.groupMemberValue = groupMemberValue;
     }
 
+    AtomicLong timeTaken = new AtomicLong(0);
     @Override
     protected void updateIdsFromDatabase(List list) {
+        long start = System.currentTimeMillis();
         Map<String, GSUser> ids = new HashMap<String, GSUser>();
         for (Object entity : list) {
             if (entity instanceof GSUser) {
@@ -178,6 +181,10 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
         final List<GSUser> users = dao.search(search);
         for (GSUser user : users) {
             ids.get(user.getExtId()).setId(user.getId());
+        }
+        final long totalTimeTaken = timeTaken.addAndGet(System.currentTimeMillis() - start);
+        if (totalTimeTaken % 10000 == 0) {
+            System.out.println("Time in UserDAOLdapImpl updateIdsFromDatabase " + totalTimeTaken);
         }
     }
 

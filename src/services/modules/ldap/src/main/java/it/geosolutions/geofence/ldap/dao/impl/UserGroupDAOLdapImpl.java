@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * UserGroupDAO implementation, using an LDAP server as a primary source, and the original
@@ -48,8 +49,10 @@ public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implem
 		setSearchFilter("objectClass=posixGroup");
 	}
 
+    AtomicLong timeTaken = new AtomicLong(0);
     @Override
     protected void updateIdsFromDatabase(List list) {
+        long start = System.currentTimeMillis();
         Map<String, UserGroup> ids = new HashMap<String, UserGroup>();
         for (Object entity : list) {
             if (entity instanceof UserGroup) {
@@ -65,6 +68,10 @@ public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implem
         final List<UserGroup> userGroups = dao.search(search);
         for (UserGroup userGroup : userGroups) {
             ids.get(userGroup.getExtId()).setId(userGroup.getId());
+        }
+        final long totalTimeTaken = timeTaken.addAndGet(System.currentTimeMillis() - start);
+        if (totalTimeTaken % 10000 == 0) {
+            System.out.println("Time in UserGRupDAOLdapImpl updateIdsFromDatabase " + totalTimeTaken);
         }
     }
 }
