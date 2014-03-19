@@ -30,4 +30,5 @@
     <bean id="ruleReaderService" class="it.geosolutions.geofence.services.RuleReaderServiceImpl">
     </bean>
 
+    <bean id="metricsRegistry" class="com.codahale.metrics.MetricRegistry" />
 </beans>

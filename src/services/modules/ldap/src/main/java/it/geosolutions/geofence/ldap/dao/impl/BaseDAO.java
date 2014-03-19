@@ -19,13 +19,17 @@
  */
 package it.geosolutions.geofence.ldap.dao.impl;
 
+import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.Timer;
 import it.geosolutions.geofence.core.dao.RestrictedGenericDAO;
 import it.geosolutions.geofence.dao.utils.LdapUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ldap.core.AttributesMapper;
 import org.springframework.ldap.core.LdapTemplate;
 
@@ -56,8 +60,12 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	private AttributesMapper attributesMapper;
 	 
 	T dao;
-		
-	/**
+
+    @Autowired
+    private MetricRegistry metricsRegistry;
+
+    private ConcurrentHashMap<String, Timer> timers = new ConcurrentHashMap<String, Timer>();
+    /**
 	 * Sets the backup DAO.
 	 * 
 	 * @param dao the dao to set
@@ -105,42 +113,57 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	
 	@Override
 	public List<R> findAll() {
-		return search(searchFilter);
+        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_findAll()").time();
+        try {
+    		return search(searchFilter);
+        } finally {
+            context.stop();
+        }
 	}
 
 	@Override
 	public R find(Long id) {
-		// try to load the user from db, first
-		R object = searchOnDb(id);
-		if(object != null) {
-			return object;
-		}		
-		List<R> objects = search( new Filter("id", id) );		
-		if(objects == null || objects.size() == 0) {
-			return null;
-		}
-		return objects.get(0);
+        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_find(id)").time();
+        try {
+            // try to load the user from db, first
+            R object = searchOnDb(id);
+            if(object != null) {
+                return object;
+            }
+            List<R> objects = search( new Filter("id", id) );
+            if(objects == null || objects.size() == 0) {
+                return null;
+            }
+            return objects.get(0);
+        } finally {
+            context.stop();
+        }
 	}
 	
 	@Override
 	public List<R> search(ISearch search) {
-		List<R> objects = new ArrayList<R>();
-		if(search.getFilters().size() == 0) {
-			// no filter
-			return findAll();
-		}
-		for(Filter filter : search.getFilters()) {
-			if(filter != null) {
-				List<R> filteredObjects = search(filter);
-				objects.addAll(filteredObjects);						
-			}
-		}
+        List<R> objects = new ArrayList<R>();
+        if(search.getFilters().size() == 0) {
+            // no filter
+            return findAll();
+        }
+        for(Filter filter : search.getFilters()) {
+            if(filter != null) {
+                List<R> filteredObjects = search(filter);
+                objects.addAll(filteredObjects);
+            }
+        }
 		return objects;
 	}
 	
 	@Override
 	public int count(ISearch search) {
-		return search(search).size();
+        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_count()").time();
+        try {
+    		return search(search).size();
+        } finally {
+            context.stop();
+        }
 	}
 	
 	@Override
@@ -176,9 +199,14 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	 * @return
 	 */
 	public R lookup(String dn) {
-        final R object = (R) ldapTemplate.lookup(dn, attributesMapper);
-        updateIdsFromDatabase(Arrays.asList(object));
-        return object;
+        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_lookup(dn)").time();
+        try {
+            final R object = (R) ldapTemplate.lookup(dn, attributesMapper);
+            updateIdsFromDatabase(Arrays.asList(object));
+            return object;
+        } finally {
+            context.stop();
+        }
 	}
 	
 	/**
@@ -226,9 +254,14 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	 * @return
 	 */
 	public List search(String base, Filter filter, AttributesMapper mapper) {
-        final List list = LdapUtils.search(ldapTemplate, base, filter, mapper);
-        updateIdsFromDatabase(list);
-        return list;
+        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_updateIdsFromDatabase").time();
+        try {
+            final List list = LdapUtils.search(ldapTemplate, base, filter, mapper);
+            updateIdsFromDatabase(list);
+            return list;
+        } finally {
+            context.stop();
+        }
 	}
 	
 	/**
@@ -242,9 +275,14 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	 * @return
 	 */
 	public List search(String base, String filter, AttributesMapper mapper) {
-        final List list = LdapUtils.search(ldapTemplate, base, filter, mapper);
-        updateIdsFromDatabase(list);
-        return list;
+        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_updateIdsFromDatabase").time();
+        try {
+            final List list = LdapUtils.search(ldapTemplate, base, filter, mapper);
+            updateIdsFromDatabase(list);
+            return list;
+        } finally {
+            context.stop();
+        }
 	}
 
     protected abstract void updateIdsFromDatabase(List list);
@@ -275,4 +313,19 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 		return search(searchBase, filter, attributesMapper);		
 	}
 
+    public Timer getTimer(String name) {
+        Timer timer = timers.get(name);
+
+        if (timer == null) {
+            synchronized (this.metricsRegistry) {
+                timer = this.timers.get(name);
+                if (timer == null) {
+                    timer = this.metricsRegistry.timer(name);
+                    timers.put(name, timer);
+                }
+            }
+        }
+
+        return timer;
+    }
 }

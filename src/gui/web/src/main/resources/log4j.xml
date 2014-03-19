@@ -27,13 +27,13 @@
   
     <!-- 
         <logger name="org.hibernate">
-            <level value="debug"/>
+            <level value="warn"/>
             <appender-ref ref="R"/>
         </logger>
     -->
 
     <loggers>
-        <logger name="it.geosolutions.geofence" level="debug">
+        <logger name="it.geosolutions.geofence" level="warn">
             <!--<appender-ref ref="R"/>-->
         </logger>
 

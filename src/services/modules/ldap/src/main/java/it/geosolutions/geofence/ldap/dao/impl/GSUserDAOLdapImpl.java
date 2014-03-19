@@ -19,6 +19,7 @@
  */
 package it.geosolutions.geofence.ldap.dao.impl;
 
+import com.codahale.metrics.*;
 import com.googlecode.genericdao.search.Search;
 import it.geosolutions.geofence.core.dao.GSUserDAO;
 import it.geosolutions.geofence.core.model.GSUser;
@@ -162,29 +163,28 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
         this.groupMemberValue = groupMemberValue;
     }
 
-    AtomicLong timeTaken = new AtomicLong(0);
     @Override
     protected void updateIdsFromDatabase(List list) {
-        long start = System.currentTimeMillis();
-        Map<String, GSUser> ids = new HashMap<String, GSUser>();
-        for (Object entity : list) {
-            if (entity instanceof GSUser) {
-                GSUser gsUser = (GSUser) entity;
+        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_updateIdsFromDatabase").time();
+        try {
+            Map<String, GSUser> ids = new HashMap<String, GSUser>();
+            for (Object entity : list) {
+                if (entity instanceof GSUser) {
+                    GSUser gsUser = (GSUser) entity;
 
-                ids.put(gsUser.getExtId(), gsUser);
-            } else {
-                return;
+                    ids.put(gsUser.getExtId(), gsUser);
+                } else {
+                    return;
+                }
             }
-        }
-        final Search search = new Search();
-        search.addFilter(Filter.in("extId", ids.keySet()));
-        final List<GSUser> users = dao.search(search);
-        for (GSUser user : users) {
-            ids.get(user.getExtId()).setId(user.getId());
-        }
-        final long totalTimeTaken = timeTaken.addAndGet(System.currentTimeMillis() - start);
-        if (totalTimeTaken % 10000 == 0) {
-            System.out.println("Time in UserDAOLdapImpl updateIdsFromDatabase " + totalTimeTaken);
+            final Search search = new Search();
+            search.addFilter(Filter.in("extId", ids.keySet()));
+            final List<GSUser> users = dao.search(search);
+            for (GSUser user : users) {
+                ids.get(user.getExtId()).setId(user.getId());
+            }
+        } finally {
+            context.stop();
         }
     }
 

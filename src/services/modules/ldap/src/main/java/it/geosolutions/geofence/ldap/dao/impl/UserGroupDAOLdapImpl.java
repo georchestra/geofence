@@ -19,11 +19,14 @@
  */
 package it.geosolutions.geofence.ldap.dao.impl;
 
+import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.Timer;
 import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;
 import it.geosolutions.geofence.core.dao.UserGroupDAO;
 import it.geosolutions.geofence.core.model.GSUser;
 import it.geosolutions.geofence.core.model.UserGroup;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,10 +41,8 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author "Mauro Bartolomeoli - mauro.bartolomeoli@geo-solutions.it"
  *
  */
-public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implements UserGroupDAO {	
-	/**
-	 * 
-	 */
+public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implements UserGroupDAO {
+
 	public UserGroupDAOLdapImpl() {
 		super();
 		// set default search base and filter for groups
@@ -49,29 +50,28 @@ public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implem
 		setSearchFilter("objectClass=posixGroup");
 	}
 
-    AtomicLong timeTaken = new AtomicLong(0);
     @Override
     protected void updateIdsFromDatabase(List list) {
-        long start = System.currentTimeMillis();
-        Map<String, UserGroup> ids = new HashMap<String, UserGroup>();
-        for (Object entity : list) {
-            if (entity instanceof UserGroup) {
-                UserGroup gsUser = (UserGroup) entity;
+        Timer.Context context = getTimer(getClass().getName() + "_updateIdsFromDatabase").time();
+        try {
+            Map<String, UserGroup> ids = new HashMap<String, UserGroup>();
+            for (Object entity : list) {
+                if (entity instanceof UserGroup) {
+                    UserGroup gsUser = (UserGroup) entity;
 
-                ids.put(gsUser.getExtId(), gsUser);
-            } else {
-                return;
+                    ids.put(gsUser.getExtId(), gsUser);
+                } else {
+                    return;
+                }
             }
-        }
-        final Search search = new Search();
-        search.addFilter(Filter.in("extId", ids.keySet()));
-        final List<UserGroup> userGroups = dao.search(search);
-        for (UserGroup userGroup : userGroups) {
-            ids.get(userGroup.getExtId()).setId(userGroup.getId());
-        }
-        final long totalTimeTaken = timeTaken.addAndGet(System.currentTimeMillis() - start);
-        if (totalTimeTaken % 10000 == 0) {
-            System.out.println("Time in UserGRupDAOLdapImpl updateIdsFromDatabase " + totalTimeTaken);
+            final Search search = new Search();
+            search.addFilter(Filter.in("extId", ids.keySet()));
+            final List<UserGroup> userGroups = dao.search(search);
+            for (UserGroup userGroup : userGroups) {
+                ids.get(userGroup.getExtId()).setId(userGroup.getId());
+            }
+        } finally {
+            context.stop();
         }
     }
 }
