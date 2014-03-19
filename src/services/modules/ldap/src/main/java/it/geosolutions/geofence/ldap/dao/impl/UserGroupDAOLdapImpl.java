@@ -22,10 +22,8 @@ package it.geosolutions.geofence.ldap.dao.impl;
 import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;
 import it.geosolutions.geofence.core.dao.UserGroupDAO;
-import it.geosolutions.geofence.core.model.GSUser;
 import it.geosolutions.geofence.core.model.UserGroup;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,8 +35,10 @@ import java.util.Map;
  * @author "Mauro Bartolomeoli - mauro.bartolomeoli@geo-solutions.it"
  *
  */
-public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implements UserGroupDAO {	
-	/**
+public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implements UserGroupDAO {
+    private volatile CachingSearch<UserGroup, UserGroupDAO> updateIdSearch;
+
+    /**
 	 * 
 	 */
 	public UserGroupDAOLdapImpl() {
@@ -60,9 +60,17 @@ public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implem
                 return;
             }
         }
-        final Search search = new Search();
-        search.addFilter(Filter.in("extId", ids.keySet()));
-        final List<UserGroup> userGroups = dao.search(search);
+        if (this.updateIdSearch == null) {
+            synchronized (this) {
+                if (this.updateIdSearch == null) {
+                    final Search search = new Search();
+                    search.addFilter(Filter.in("extId", ids.keySet()));
+                    this.updateIdSearch = new CachingSearch<UserGroup, UserGroupDAO>(500, search, dao);
+                }
+            }
+        }
+
+        final List<UserGroup> userGroups = this.updateIdSearch.search();
         for (UserGroup userGroup : userGroups) {
             ids.get(userGroup.getExtId()).setId(userGroup.getId());
         }
