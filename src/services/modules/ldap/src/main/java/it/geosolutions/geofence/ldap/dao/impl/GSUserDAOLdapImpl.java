@@ -25,9 +25,6 @@ import it.geosolutions.geofence.core.model.GSUser;
 import it.geosolutions.geofence.core.model.UserGroup;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 import org.springframework.ldap.core.AttributesMapper;
 
@@ -50,7 +47,6 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
     private String groupMemberValue = "%s";
 
     private final String GEORCHESTRA_ADMIN_GROUP = "ADMINISTRATOR";
-    private volatile CachingSearch<GSUser, GSUserDAO> updateIdSearch;
 
 
     /**
@@ -177,17 +173,9 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
                 return;
             }
         }
-
-        if (this.updateIdSearch == null) {
-            synchronized (this) {
-                if (this.updateIdSearch == null) {
-                    final Search search = new Search();
-                    search.addFilter(Filter.in("extId", ids.keySet()));
-                    this.updateIdSearch = new CachingSearch<GSUser, GSUserDAO>(500, search, dao);
-                }
-            }
-        }
-        final List<GSUser> users = this.updateIdSearch.search();
+        final Search search = new Search();
+        search.addFilter(Filter.in("extId", ids.keySet()));
+        final List<GSUser> users = dao.search(search);
         for (GSUser user : users) {
             ids.get(user.getExtId()).setId(user.getId());
         }
