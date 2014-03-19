@@ -164,8 +164,14 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
     @Override
     protected void updateIdsFromDatabase(List<GSUser> list) {
         Map<String, GSUser> ids = new HashMap<String, GSUser>();
-        for (GSUser entity : list) {
-            ids.put(entity.getExtId(), entity);
+        for (Object entity : list) {
+            if (entity instanceof GSUser) {
+                GSUser gsUser = (GSUser) entity;
+
+                ids.put(gsUser.getExtId(), gsUser);
+            } else {
+                return;
+            }
         }
         final Search search = new Search();
         search.addFilter(Filter.in("extId", ids.keySet()));
