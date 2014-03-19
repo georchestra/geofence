@@ -22,6 +22,7 @@ package it.geosolutions.geofence.ldap.dao.impl;
 import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;
 import it.geosolutions.geofence.core.dao.UserGroupDAO;
+import it.geosolutions.geofence.core.model.GSUser;
 import it.geosolutions.geofence.core.model.UserGroup;
 
 import java.util.ArrayList;
@@ -48,10 +49,16 @@ public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implem
 	}
 
     @Override
-    protected void updateIdsFromDatabase(List<UserGroup> list) {
+    protected void updateIdsFromDatabase(List list) {
         Map<String, UserGroup> ids = new HashMap<String, UserGroup>();
-        for (UserGroup entity : list) {
-            ids.put(entity.getExtId(), entity);
+        for (Object entity : list) {
+            if (entity instanceof UserGroup) {
+                UserGroup gsUser = (UserGroup) entity;
+
+                ids.put(gsUser.getExtId(), gsUser);
+            } else {
+                return;
+            }
         }
         final Search search = new Search();
         search.addFilter(Filter.in("extId", ids.keySet()));

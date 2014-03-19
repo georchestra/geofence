@@ -247,7 +247,7 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
         return list;
 	}
 
-    protected abstract void updateIdsFromDatabase(List<R> list);
+    protected abstract void updateIdsFromDatabase(List list);
 
     /**
 	 * Search using the given filter on the LDAP server.

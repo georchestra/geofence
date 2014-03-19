@@ -162,7 +162,7 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
     }
 
     @Override
-    protected void updateIdsFromDatabase(List<GSUser> list) {
+    protected void updateIdsFromDatabase(List list) {
         Map<String, GSUser> ids = new HashMap<String, GSUser>();
         for (Object entity : list) {
             if (entity instanceof GSUser) {
@@ -175,9 +175,9 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
         }
         final Search search = new Search();
         search.addFilter(Filter.in("extId", ids.keySet()));
-        final List<GSUser> userGroups = dao.search(search);
-        for (GSUser userGroup : userGroups) {
-            ids.get(userGroup.getExtId()).setId(userGroup.getId());
+        final List<GSUser> users = dao.search(search);
+        for (GSUser user : users) {
+            ids.get(user.getExtId()).setId(user.getId());
         }
     }
 
