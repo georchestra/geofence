@@ -19,14 +19,12 @@
  */
 package it.geosolutions.geofence.ldap.dao.impl;
 
-import com.codahale.metrics.*;
 import com.googlecode.genericdao.search.Search;
 import it.geosolutions.geofence.core.dao.GSUserDAO;
 import it.geosolutions.geofence.core.model.GSUser;
 import it.geosolutions.geofence.core.model.UserGroup;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.ldap.core.AttributesMapper;
 
@@ -165,7 +163,7 @@ public class GSUserDAOLdapImpl extends BaseDAO<GSUserDAO,GSUser> implements GSUs
 
     @Override
     protected void updateIdsFromDatabase(List list) {
-        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_updateIdsFromDatabase").time();
+        com.codahale.metrics.Timer.Context context = metricRegistry.timer(getClass().getName() + "_updateIdsFromDatabase").time();
         try {
             Map<String, GSUser> ids = new HashMap<String, GSUser>();
             for (Object entity : list) {

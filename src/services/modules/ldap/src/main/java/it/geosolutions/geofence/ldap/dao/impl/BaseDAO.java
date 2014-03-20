@@ -20,17 +20,14 @@
 package it.geosolutions.geofence.ldap.dao.impl;
 
 import com.codahale.metrics.MetricRegistry;
-import com.codahale.metrics.Timer;
 import it.geosolutions.geofence.core.dao.RestrictedGenericDAO;
 import it.geosolutions.geofence.dao.utils.LdapUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.ldap.core.AttributesMapper;
 import org.springframework.ldap.core.LdapTemplate;
 
@@ -63,9 +60,8 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	T dao;
 
     @Autowired
-    private ApplicationContext applicationContext;
+    protected MetricRegistry metricRegistry;
 
-    private ConcurrentHashMap<String, Timer> timers = new ConcurrentHashMap<String, Timer>();
     /**
 	 * Sets the backup DAO.
 	 * 
@@ -114,7 +110,7 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	
 	@Override
 	public List<R> findAll() {
-        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_findAll()").time();
+        com.codahale.metrics.Timer.Context context = metricRegistry.timer(getClass().getName() + "_findAll()").time();
         try {
     		return search(searchFilter);
         } finally {
@@ -124,7 +120,7 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 
 	@Override
 	public R find(Long id) {
-        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_find(id)").time();
+        com.codahale.metrics.Timer.Context context = metricRegistry.timer(getClass().getName() + "_find(id)").time();
         try {
             // try to load the user from db, first
             R object = searchOnDb(id);
@@ -159,7 +155,7 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	
 	@Override
 	public int count(ISearch search) {
-        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_count()").time();
+        com.codahale.metrics.Timer.Context context = metricRegistry.timer(getClass().getName() + "_count()").time();
         try {
     		return search(search).size();
         } finally {
@@ -200,7 +196,7 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	 * @return
 	 */
 	public R lookup(String dn) {
-        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_lookup(dn)").time();
+        com.codahale.metrics.Timer.Context context = metricRegistry.timer(getClass().getName() + "_lookup(dn)").time();
         try {
             final R object = (R) ldapTemplate.lookup(dn, attributesMapper);
             updateIdsFromDatabase(Arrays.asList(object));
@@ -255,7 +251,7 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	 * @return
 	 */
 	public List search(String base, Filter filter, AttributesMapper mapper) {
-        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_updateIdsFromDatabase").time();
+        com.codahale.metrics.Timer.Context context = metricRegistry.timer(getClass().getName() + "_updateIdsFromDatabase").time();
         try {
             final List list = LdapUtils.search(ldapTemplate, base, filter, mapper);
             updateIdsFromDatabase(list);
@@ -276,7 +272,7 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	 * @return
 	 */
 	public List search(String base, String filter, AttributesMapper mapper) {
-        com.codahale.metrics.Timer.Context context = getTimer(getClass().getName() + "_updateIdsFromDatabase").time();
+        com.codahale.metrics.Timer.Context context = metricRegistry.timer(getClass().getName() + "_updateIdsFromDatabase").time();
         try {
             final List list = LdapUtils.search(ldapTemplate, base, filter, mapper);
             updateIdsFromDatabase(list);
@@ -314,20 +310,4 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 		return search(searchBase, filter, attributesMapper);		
 	}
 
-    public Timer getTimer(String name) {
-        Timer timer = timers.get(name);
-
-        if (timer == null) {
-            MetricRegistry metricsRegistry = applicationContext.getBean(MetricRegistry.class);
-            synchronized (metricsRegistry) {
-                timer = this.timers.get(name);
-                if (timer == null) {
-                    timer = metricsRegistry.timer(name);
-                    timers.put(name, timer);
-                }
-            }
-        }
-
-        return timer;
-    }
 }

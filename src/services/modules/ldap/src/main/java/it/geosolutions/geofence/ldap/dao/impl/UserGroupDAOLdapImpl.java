@@ -19,20 +19,15 @@
  */
 package it.geosolutions.geofence.ldap.dao.impl;
 
-import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;
 import it.geosolutions.geofence.core.dao.UserGroupDAO;
-import it.geosolutions.geofence.core.model.GSUser;
 import it.geosolutions.geofence.core.model.UserGroup;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * UserGroupDAO implementation, using an LDAP server as a primary source, and the original
@@ -52,7 +47,7 @@ public class UserGroupDAOLdapImpl extends BaseDAO<UserGroupDAO,UserGroup> implem
 
     @Override
     protected void updateIdsFromDatabase(List list) {
-        Timer.Context context = getTimer(getClass().getName() + "_updateIdsFromDatabase").time();
+        Timer.Context context = metricRegistry.timer(getClass().getName() + "_updateIdsFromDatabase").time();
         try {
             Map<String, UserGroup> ids = new HashMap<String, UserGroup>();
             for (Object entity : list) {
