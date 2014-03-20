@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.ldap.core.AttributesMapper;
 import org.springframework.ldap.core.LdapTemplate;
 
@@ -62,7 +63,7 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
 	T dao;
 
     @Autowired
-    private MetricRegistry metricsRegistry;
+    private ApplicationContext applicationContext;
 
     private ConcurrentHashMap<String, Timer> timers = new ConcurrentHashMap<String, Timer>();
     /**
@@ -317,10 +318,11 @@ public abstract class BaseDAO<T extends RestrictedGenericDAO<R>, R> implements R
         Timer timer = timers.get(name);
 
         if (timer == null) {
-            synchronized (this.metricsRegistry) {
+            MetricRegistry metricsRegistry = applicationContext.getBean(MetricRegistry.class);
+            synchronized (metricsRegistry) {
                 timer = this.timers.get(name);
                 if (timer == null) {
-                    timer = this.metricsRegistry.timer(name);
+                    timer = metricsRegistry.timer(name);
                     timers.put(name, timer);
                 }
             }
