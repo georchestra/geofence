@@ -90,6 +90,7 @@ public class RuleReaderServiceImpl implements RuleReaderService {
     private LayerDetailsDAO detailsDAO;
     private GSUserDAO userDAO;
     private UserGroupDAO userGroupDAO;
+    private RuleCache ruleCache;
 
     @Autowired
     private MetricRegistry metricRegistry;
@@ -653,7 +654,7 @@ public class RuleReaderServiceImpl implements RuleReaderService {
             addStringCriteria(searchCriteria, "request", filter.getRequest()); // see class' javadoc
             addStringCriteria(searchCriteria, "workspace", filter.getWorkspace());
             addStringCriteria(searchCriteria, "layer", filter.getLayer());
-            List<Rule> found = ruleDAO.search(searchCriteria);
+            List<Rule> found = this.ruleCache.search(searchCriteria);
         return found;
         } finally {
             timer.stop();
@@ -777,6 +778,9 @@ public class RuleReaderServiceImpl implements RuleReaderService {
 
     public void setRuleDAO(RuleDAO ruleDAO) {
         this.ruleDAO = ruleDAO;
+        if (ruleDAO != null) {
+            this.ruleCache = new RuleCache(ruleDAO);
+        }
     }
 
     public void setLayerDetailsDAO(LayerDetailsDAO detailsDAO) {
