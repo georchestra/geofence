@@ -21,14 +21,14 @@ package it.geosolutions.geofence.services;
 
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
+import com.google.common.collect.Lists;
 import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.Search;
 
 import it.geosolutions.geofence.services.dto.AccessInfo;
 import it.geosolutions.geofence.services.dto.RuleFilter.IdNameFilter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -63,13 +63,7 @@ import it.geosolutions.geofence.services.exception.BadRequestServiceEx;
 import it.geosolutions.geofence.services.util.AccessInfoInternal;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
 
 import javax.xml.bind.annotation.XmlElementDecl.GLOBAL;
 
@@ -654,12 +648,42 @@ public class RuleReaderServiceImpl implements RuleReaderService {
             addStringCriteria(searchCriteria, "request", filter.getRequest()); // see class' javadoc
             addStringCriteria(searchCriteria, "workspace", filter.getWorkspace());
             addStringCriteria(searchCriteria, "layer", filter.getLayer());
-            List<Rule> found = this.ruleCache.search(searchCriteria);
-        return found;
+            TreeSet<Rule> results = new TreeSet<Rule>(PRIORITY_COMPARATOR);
+            List<Rule> all = ruleCache.findAll();
+            for (Rule rule : all) {
+                boolean matchUser = rule.getGsuser() == null ||
+                                   rule.getGsuser().getId().longValue() == filter.getUser().getId().longValue();
+                boolean matchGroup;
+                if (groupFilter.getType() == FilterType.ANY) {
+                    matchGroup =  rule.getUserGroup() == null;
+                } else {
+                    matchGroup = rule.getUserGroup() != null && (
+                            rule.getUserGroup().getId().longValue() == groupFilter.getId().longValue() ||
+                            (rule.getUserGroup().getExtId() != null && rule.getUserGroup().getExtId().equals("-" + groupFilter.getId())));
+                }
+                boolean matchInstance = rule.getInstance() == null ||
+                                       rule.getInstance().getName().equals(filter.getInstance().getName());
+                boolean matchRequest = rule.getRequest() == null ||
+                                      rule.getRequest().equals(filter.getRequest().getName());
+                boolean matchWorkspace = rule.getWorkspace() == null ||
+                                        rule.getWorkspace().equals(filter.getWorkspace().getName());
+                boolean matchLayer = rule.getLayer() == null || rule.getLayer().equals(filter.getLayer().getName());
+
+                if (matchUser && matchGroup && matchInstance && matchRequest && matchWorkspace && matchLayer) {
+                    results.add(rule);
+                }
+            }
+            return Lists.newArrayList(results);
         } finally {
             timer.stop();
         }
     }
+    private static final Comparator<Rule> PRIORITY_COMPARATOR = new Comparator<Rule>() {
+        @Override
+        public int compare(Rule o1, Rule o2) {
+            return Long.compare(o1.getPriority(), o2.getPriority());
+        }
+    };
 
     private void addCriteria(Search searchCriteria, String fieldName, IdNameFilter filter) {
         switch (filter.getType()) {

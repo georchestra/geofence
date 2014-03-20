@@ -17,6 +17,10 @@ import java.util.concurrent.TimeUnit;
  * Created by Jesse on 3/20/2014.
  */
 public class RuleCache {
+    public List<Rule> findAll() {
+        return return search(null);
+    }
+
     private static class Entry {
         long lastUpdate;
         List<Rule> rules;
@@ -29,19 +33,21 @@ public class RuleCache {
     }
 
     public synchronized List<Rule> search(Search search) {
-        final int hashCode = search.hashCode();
         Entry entry = cache.get(search);
         final long queryTime = System.currentTimeMillis();
         if (entry == null || queryTime - entry.lastUpdate > 1000) {
-            final List<Rule> results = this.ruleDAO.search(search);
+            final List<Rule> results;
+            if (search == null) {
+                results = this.ruleDAO.findAll();
+            } else {
+                results = this.ruleDAO.search(search);
+            }
             if (entry == null) {
                 entry = new Entry();
                 cache.put(search, entry);
             }
             entry.lastUpdate = queryTime;
             entry.rules = results;
-        } else {
-            System.out.println("a hit");
         }
         return entry.rules;
     }
