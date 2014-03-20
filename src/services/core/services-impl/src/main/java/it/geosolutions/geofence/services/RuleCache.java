@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class RuleCache {
     public List<Rule> findAll() {
-        return return search(null);
+        return search(null);
     }
 
     private static class Entry {
