@@ -29,6 +29,7 @@ public class RuleCache {
     }
 
     public synchronized List<Rule> search(Search search) {
+        final int hashCode = search.hashCode();
         Entry entry = cache.get(search);
         final long queryTime = System.currentTimeMillis();
         if (entry == null || queryTime - entry.lastUpdate > 1000) {
@@ -39,6 +40,8 @@ public class RuleCache {
             }
             entry.lastUpdate = queryTime;
             entry.rules = results;
+        } else {
+            System.out.println("a hit");
         }
         return entry.rules;
     }
