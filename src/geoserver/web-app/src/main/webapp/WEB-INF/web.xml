@@ -66,9 +66,6 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:/applicationContext.xml classpath*:/applicationSecurityContext.xml</param-value>
     </context-param>
-    <listener>
-        <listener-class>it.geosolutions.geofence.MetricsRegistryContextListener</listener-class>
-    </listener>
 <!--    <filter>
      <filter-name>Georepository alternate security filter</filter-name>
      <filter-class>it.geosolutions.geofence.AuthenticationFilter</filter-class>
@@ -251,6 +248,10 @@
     <!--  spring context loader -->
     <listener>
       <listener-class>org.geoserver.platform.GeoServerContextLoaderListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>it.geosolutions.geofence.MetricsRegistryContextListener</listener-class>
     </listener>
 
     <servlet>

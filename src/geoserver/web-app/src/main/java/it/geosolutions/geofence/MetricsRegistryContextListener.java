@@ -4,6 +4,7 @@ import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.servlets.MetricsServlet;
 import org.springframework.web.context.WebApplicationContext;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 
 import static org.springframework.web.context.support.WebApplicationContextUtils.getWebApplicationContext;
@@ -14,17 +15,20 @@ import static org.springframework.web.context.support.WebApplicationContextUtils
  * Created by Jesse on 3/19/14.
  */
 public class MetricsRegistryContextListener extends MetricsServlet.ContextListener {
-    private MetricRegistry metricsRegistry;
+    private ServletContext servletContext;
 
     @Override
     public void contextInitialized(ServletContextEvent event) {
-        final WebApplicationContext webApplicationContext = getWebApplicationContext(event.getServletContext());
-        this.metricsRegistry = webApplicationContext.getBean(MetricRegistry.class);
+        this.servletContext = event.getServletContext();
         super.contextInitialized(event);
     }
 
     @Override
     protected MetricRegistry getMetricRegistry() {
-        return this.metricsRegistry;
+        final WebApplicationContext webApplicationContext = getWebApplicationContext(this.servletContext);
+        if (webApplicationContext == null) {
+            return new MetricRegistry();
+        }
+        return webApplicationContext.getBean(MetricRegistry.class);
     }
 }
