@@ -805,7 +805,7 @@ public class RuleReaderServiceImpl implements RuleReaderService {
     public void setRuleDAO(RuleDAO ruleDAO) {
         this.ruleDAO = ruleDAO;
         if (ruleDAO != null) {
-            this.ruleCache = new RuleCache(ruleDAO);
+            this.ruleCache = new RuleCache(ruleDAO, metricRegistry);
         }
     }
 
