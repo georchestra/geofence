@@ -681,7 +681,9 @@ public class RuleReaderServiceImpl implements RuleReaderService {
     private static final Comparator<Rule> PRIORITY_COMPARATOR = new Comparator<Rule>() {
         @Override
         public int compare(Rule o1, Rule o2) {
-            return Long.compare(o1.getPriority(), o2.getPriority());
+            long priority1 = o1.getPriority();
+            long priority2 = o2.getPriority();
+            return (priority1 < priority2) ? -1 : ((priority1 == priority2) ? 0 : 1);
         }
     };
 
