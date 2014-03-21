@@ -632,11 +632,9 @@ public class RuleReaderServiceImpl implements RuleReaderService {
             for (Rule rule : all) {
                 boolean matchUser = rule.getGsuser() == null ||
                                    rule.getGsuser().getId().longValue() == filter.getUser().getId().longValue();
-                boolean matchGroup;
-                if (groupFilter.getType() == FilterType.ANY) {
-                    matchGroup =  rule.getUserGroup() == null;
-                } else {
-                    matchGroup = rule.getUserGroup() != null && (
+                boolean matchGroup = rule.getUserGroup() == null;
+                if (groupFilter.getType() != FilterType.ANY) {
+                    matchGroup |= rule.getUserGroup() != null && (
                             rule.getUserGroup().getId().longValue() == groupFilter.getId().longValue() ||
                             (rule.getUserGroup().getExtId() != null && rule.getUserGroup().getExtId().equals("-" + groupFilter.getId())));
                 }
