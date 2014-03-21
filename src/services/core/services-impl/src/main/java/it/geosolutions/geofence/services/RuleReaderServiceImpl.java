@@ -627,27 +627,6 @@ public class RuleReaderServiceImpl implements RuleReaderService {
     protected List<Rule> getRuleAux(RuleFilter filter, IdNameFilter groupFilter) {
         Timer.Context timer = this.metricRegistry.timer(getClass().getName() + "_getRuleAux(RuleFilter)").time();
         try {
-            Search searchCriteria = new Search(Rule.class);
-            searchCriteria.addSortAsc("priority");
-            addCriteria(searchCriteria, "gsuser", filter.getUser());
-            if (groupFilter.getType() == FilterType.IDVALUE) {
-                searchCriteria.addFilterOr(
-                        Filter.isNull("userGroup"),
-                        Filter.equal("userGroup.id", groupFilter.getId()),
-                        // if the usergroup is from ldap then we need to check the extId as well
-                        Filter.equal("userGroup.extId", "-"+groupFilter.getId()));
-
-            } else if (groupFilter.getType() == FilterType.ANY){
-                // to prevent the case there is no group then it can only match rules with null usergroup
-                searchCriteria.addFilter(Filter.isNull("userGroup"));
-            } else {
-                addCriteria(searchCriteria, "userGroup", groupFilter);
-            }
-            addCriteria(searchCriteria, "instance", filter.getInstance());
-            addStringCriteria(searchCriteria, "service", filter.getService()); // see class' javadoc
-            addStringCriteria(searchCriteria, "request", filter.getRequest()); // see class' javadoc
-            addStringCriteria(searchCriteria, "workspace", filter.getWorkspace());
-            addStringCriteria(searchCriteria, "layer", filter.getLayer());
             TreeSet<Rule> results = new TreeSet<Rule>(PRIORITY_COMPARATOR);
             List<Rule> all = ruleCache.findAll();
             for (Rule rule : all) {
