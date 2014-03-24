@@ -55,7 +55,7 @@ You can override this configuration by adding those files in your own configurat
 
 
 #### LDAP configuration
-Buy default, geofence works with LDAP activated. See offical LDAP module [https://github.com/geosolutions-it/geofence/wiki/LDAP-module](documentation).
+By default, geofence works with LDAP. See offical LDAP module [https://github.com/geosolutions-it/geofence/wiki/LDAP-module](documentation).
 **Important :** 
 * All your LDAP users need to have a numeric unique attribute to identify them into **GeoFence**. By default, this attribute is *employeeNumber* but this can be changed in your configuration.
 * All your LDAP groups also need to have a numeric unique attribute. By default, this attribute is *ou* but this can be changed in your configuration.
@@ -67,6 +67,8 @@ Edit the file *data_dir_path*/security/auth/default/config.xml, and change the c
           <className>it.geosolutions.geoserver.authentication.auth.GeofenceAuthenticationProvider</className>
 
 * Enable REST services (see http://docs.geoserver.org/stable/en/user/security/rest.html)
+
+Note: if you're using the provided [geoserver minimal data dir](https://github.com/georchestra/geoserver_minimal_datadir) (branch geofence), you should be fine.
 
 Start with GeoFence
 --------------------
