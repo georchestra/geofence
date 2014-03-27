@@ -643,10 +643,12 @@ public class RuleReaderServiceImpl implements RuleReaderService {
                 boolean matchRequest = rule.getRequest() == null ||
                                       rule.getRequest().equals(filter.getRequest().getName());
                 boolean matchWorkspace = rule.getWorkspace() == null ||
-                                        rule.getWorkspace().equals(filter.getWorkspace().getName());
+                                         rule.getWorkspace().equals(filter.getWorkspace().getName());
+                boolean matchService = rule.getService() == null ||
+                                         rule.getService().equals(filter.getService().getName());
                 boolean matchLayer = rule.getLayer() == null || rule.getLayer().equals(filter.getLayer().getName());
 
-                if (matchUser && matchGroup && matchInstance && matchRequest && matchWorkspace && matchLayer) {
+                if (matchService && matchUser && matchGroup && matchInstance && matchRequest && matchWorkspace && matchLayer) {
                     results.add(rule);
                 }
             }
