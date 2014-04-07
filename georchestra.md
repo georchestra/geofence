@@ -1,25 +1,27 @@
-Geofence Module
+GeoFence Module
 ==================
 
-**GeoFence** handles [GeoServer](http://www.geoserver.org) authorization rules.
-You can find offical documentation and sources of the project on their [github web page](https://github.com/geosolutions-it/geofence).
+In geOrchestra, **GeoFence** is an optional module, which handles data security by **overriding** [GeoServer](http://www.geoserver.org)'s own data security ACL.
 
-In few words, **GeoFence** is an Access Control List that overrides **Geoserver** security rules.
-It provides new features as:
-- rules by users, by roles or by groups
-- distinct rules on services (WMS,WFS,...)
-- rules on request types (getmap, getcapabilities)
-- rules on a bounding box
-- controls feature attributes access
-- rules on data CQL filters
+Compared to GeoServer's own [data security](http://docs.geoserver.org/stable/en/user/security/layer.html), it provides interesting new features, such as:
+- distinct rules on services (WMS, WFS, WCS, ...),
+- rules on request types (GetMap, GetFeature, GetCapabilities, ...),
+- feature attributes filtering,
+- rules on data CQL filters,
+- static geofencing, ie access is restricted to a group of users in a given area,  
+- dynamic geofencing, based on a geometry stored in the user's LDAP record.
+
+
+When GeoFence is activated, GeoServer [service security](http://docs.geoserver.org/stable/en/user/security/service.html) is still active.
+
 
 geOrchestra Integration
 --------------------------
 ###Build
-**Important** : the geofence build will build the core and the ui of geofence webapp but will also build a customised geoserver that can defer rules management to geofence.
+**Important** : when building geOrchestra with the geofence profile, it will build the core geofence and the ui of geofence webapp, plus a customised version of geoserver, which can defer rules management to the geofence module.
 
 #### Maven Profile
-You can activate the build of geofence with the maven profile *-Pgeofence* in the root pom.xml.
+You can activate the build of geofence with the maven profile *-Pgeofence*.
 The build of geofence is managed within geoserver profile, you can't build geofence without building geoserver.
 
 Ex:
@@ -37,55 +39,76 @@ geoserver submodule will be build, then geofence geoserver will be build by over
 Configuration
 --------------
 #### Official documentation
-Follow official documentation to configure your geofence:
+Follow the official documentation to configure your geofence:
 * [How to build GeoFence](https://github.com/geosolutions-it/geofence/wiki/Building-instructions)
 * [How to configure GeoFence](https://github.com/geosolutions-it/geofence/wiki/WebApps-configuration)
 
-#### geOrchestra Config
-geOrchestra specific configuration is stored in config/default folder.
-https://github.com/georchestra/georchestra/tree/add_geofence/config/defaults/geofence-webapp/WEB-INF/classes
+#### geOrchestra configuration
 
-You can see files that set
-* data base access
-* ldap access
-* ldap mapping definition
-* ui map configuration
+The geOrchestra specific configuration is stored in the [config/defaults/geofence-webapp](config/defaults/geofence-webapp) folder.
 
-You can override this configuration by adding those files in your own configuration folder (config/configurations).
+You can see files that set:
+* data base access,
+* ldap access,
+* ldap mapping definition,
+
+Advanced geOrchestra users may override this configuration by adding those files in their own configuration folder (config/configurations/yourown) before editing them.
+
+Howerver, this is not recommended, because this is highly error-prone when upgrading geOrchestra. Instead, you should take advantage of the [GenerateConfig script](https://github.com/georchestra/template/blob/328f39e1a7ffee2c8a74dd91f3c21565856e74a3/build_support/GenerateConfig.groovy#L125) which is located in the ```build_support``` folder of your own configuration.
+
 
 
 #### LDAP configuration
-By default, geofence works with LDAP. See offical LDAP module [https://github.com/geosolutions-it/geofence/wiki/LDAP-module](documentation).
-**Important :** 
-* All your LDAP users need to have a numeric unique attribute to identify them into **GeoFence**. By default, this attribute is *employeeNumber* but this can be changed in your configuration.
-* All your LDAP groups also need to have a numeric unique attribute. By default, this attribute is *ou* but this can be changed in your configuration.
 
-#### Geoserver DATA_DIR
-* You have to update the security directory of your DATA_DIR in order to make your **GeoServer** able to communicate with the **GeoFence**.
-Edit the file *data_dir_path*/security/auth/default/config.xml, and change the className value to refer geofence authentification provider :
+By default, geofence works with LDAP. 
+
+**VERY Important :** all your LDAP users and groups **MUST** have a unique numeric identifier. By default, this attribute is (resp.)  **employeeNumber** and **ou**, but this can be changed in your configuration.
+
+If you stick to the [provided LDAP files](https://github.com/georchestra/LDAP/blob/master/georchestra.ldif) and use the LDAPadmin module to administer your users and groups, you should not have any problem. 
+
+If you use your own LDAP tree, or a custom application to manage your LDAP, please keep in mind the above rule.
+
+For more information, please refer to the original GeoFence LDAP module [https://github.com/geosolutions-it/geofence/wiki/LDAP-module](documentation).
+
+#### GeoServer DATA_DIR
+
+Either you're using the provided [geoserver minimal data dir](https://github.com/georchestra/geoserver_minimal_datadir) (**branch geofence**), and you should be fine.
+
+**Or**:
+
+* it is required that you update the *data_dir_path*/security/auth/default/config.xml file in your geoserver DATA_DIR in order to make your **GeoServer** able to communicate with the **GeoFence**.
+Namely, you have to change the className value, in order to refer to the geofence authentification provider :
   
           <className>it.geosolutions.geoserver.authentication.auth.GeofenceAuthenticationProvider</className>
 
-* Enable REST services (see http://docs.geoserver.org/stable/en/user/security/rest.html)
+* you also have to enable geoserver REST services (see http://docs.geoserver.org/stable/en/user/security/rest.html)
 
-Note: if you're using the provided [geoserver minimal data dir](https://github.com/georchestra/geoserver_minimal_datadir) (branch geofence), you should be fine.
 
 Start with GeoFence
 --------------------
+
 ###Access to Geofence
 **GeoFence** is generally be reachable at http://mygeorchestra/geofence
 **GeoFence** is behind the security-proxy and only users with role ROLE_ADMINISTRATOR can access to the admin ui.
 
 ###Web Interface
-####Users and groups
-Once logged in the web interface, You can see users and groups tabs, with data from your LDAP. Groups and users are on read only here. The LDAP access will be done each time to load the UI (which can be quite slow depending of the amount of users).
+
+A map and two tabs (instances and rules). Let's focus on the TabPanel first.
 
 #### Instances
-You can manage several geoserver instances within the same geofence. 
+You can manage **several GeoServer instances** within the same GeoFence. 
 
-You have to create an instance of your georchestra geoserver in the instance tab. By default, geofence will look for an instance called *default-gs*, so it is **highly recommenced** that you name your instance as such ! 
+If none is already setup, you have to create an instance for your georchestra geoserver in the instance tab. By default, geofence will look for an instance called *default-gs*, so it is **highly recommenced** that you name your instance as such ! 
 
 You will also have to specify a user that is ADMINISTRATOR of the geoserver (eg: your ```shared.privileged.geoserver.user```, which is "extractorapp_privileged_admin" by default, is a good candidate). 
+
+
+#### Groups
+
+Once logged in the web interface, 
+
+You can see users and groups tabs, with data from your LDAP. Groups and users are on read only here. The LDAP access will be done each time to load the UI (which can be quite slow depending of the amount of users).
+
 
 #### Rules
 You can specify you security rules in the rules tab.
@@ -141,3 +164,5 @@ Additionally, it is possible to create one rule that restricts access to an area
 2. Open the 'Layer Details' form
 3. In the 'Allowed Area Metadata Field' textbox, fill in the name of the metadata field that contains the correct geometry (not including the 'metadata.' prefix here).
  
+
+To go further, a recommended reading is the [official documentation](https://github.com/georchestra/geofence/blob/master/README.markdown).
