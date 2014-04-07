@@ -93,46 +93,49 @@ Start with GeoFence
 
 ###Web Interface
 
-A map and two tabs (instances and rules). Let's focus on the TabPanel first.
+Once logged in the web interface, one can see a map and two tabs (instances and rules). 
+
+Let's focus on the TabPanel first.
 
 #### Instances
+
 You can manage **several GeoServer instances** within the same GeoFence. 
 
 If none is already setup, you have to create an instance for your georchestra geoserver in the instance tab. By default, geofence will look for an instance called *default-gs*, so it is **highly recommenced** that you name your instance as such ! 
 
-You will also have to specify a user that is ADMINISTRATOR of the geoserver (eg: your ```shared.privileged.geoserver.user```, which is "extractorapp_privileged_admin" by default, is a good candidate). 
-
-
-#### Groups
-
-Once logged in the web interface, 
-
-You can see users and groups tabs, with data from your LDAP. Groups and users are on read only here. The LDAP access will be done each time to load the UI (which can be quite slow depending of the amount of users).
+You will also have to specify a user that is ADMINISTRATOR of the geoserver (eg: your ```shared.privileged.geoserver.user```, which is "geoserver_privileged_user" by default, is the best candidate). 
 
 
 #### Rules
-You can specify you security rules in the rules tab.
 
-**Important:** GeoFence rules will fully over write **GeoServer** security rules, they are not complementary. Once you've installed GeoFence, all your GeoServer rules will become obsoletes.
+Here is the place where you can specify your own security rules.
+Recommended reading: https://github.com/geosolutions-it/geofence/wiki/General-concepts
 
-You would need to import your **GeoServer** rules into **GeoFence**. You can find a simple java application that can help you in this task in https://github.com/georchestra/geofence/tree/georchestra/src/samples/georchestra2geofence.
+**Important:** GeoFence rules will fully overwrite **GeoServer** layer security rules, they are not complementary. Once you've installed GeoFence, all your GeoServer rules will become obsolete.
+
+
+If you need to import your existing **GeoServer** rules into **GeoFence**, you can find a simple java application that can help you in https://github.com/georchestra/geofence/tree/georchestra/src/samples/georchestra2geofence.
 This sample code allow you to import 
 * groups from an [LDAP CSV export file](https://github.com/georchestra/geofence/blob/georchestra/src/samples/georchestra2geofence/src/test/resources/groups.csv)
 * rules from [GeoServer layers security file](https://github.com/georchestra/geofence/blob/georchestra/src/samples/georchestra2geofence/src/test/resources/layers.properties)
 
 Note also that there is a [proposal](https://github.com/geosolutions-it/geofence/wiki/Proposal-%233:-GeoServer-Roles-to-GeoFence-groups-mapping) about using GeoServer Roles instead of users for authorization purposes through GeoFence
 
-#### LDAP geometry rule
-By default, **GeoFence** allow you to restrict a layer visibility on a geometry, you can add this constraint into the rule definition itself.
 
-In geOrchestra, you can extend this by setting a geometry to each user in LDAP. If a user has a geometry in his LDAP definition, then all layers can be restricted to that geometry by defining only one rule.
+#### Dynamic GeoFencing
 
-**Important:** Note that the geometry is defined as a WKT geometry. The projection has to be the same as the native projection of the layer into GeoServer, otherwise the rule won't be correctly applied.
+By default, **GeoFence** allows you to restrict layer visibility on a static geometry (aka "static geofencing").
+You can add this constraint into the rule definition itself (rule type is "LIMIT").
+
+In geOrchestra, you can extend this by setting a geometry to each user in LDAP (aka "dynamic geofencing"). If a user has a geometry in his LDAP definition, then all layers can be restricted to that geometry by defining only one rule.
+
+**VERY Important:** Note that the geometry is defined as a WKT geometry. The WKT projection has to be the same as the native projection of the layer into GeoServer, otherwise the rule won't be correctly applied.
 
 
-Mapping the Geometry fields in LDAP to Geofence
+Mapping the Geometry fields in LDAP to GeoFence
 
 See [LDAP module advanced configuration](https://github.com/geosolutions-it/geofence/wiki/LDAP-module#advanced-configuration) for general information on how to map LDAP attributes to Geofence.
+
 Additionally to the general attributes, we may specify custom MetaData fields. Assuming that the LDAP user objects have two attributes called 'geometry1' and 'geometry2' we may do as follows ::
 ```
    <bean id="geofenceLdapUserAttributesMapper"
@@ -154,15 +157,9 @@ Additionally to the general attributes, we may specify custom MetaData fields. A
 These LDAP attributes now become available in geofence.
 
 
-Making a rule 
+Now, to create a rule that restricts access to an area specified in the Metadata field of each user:
 
-See [Rules](https://github.com/geosolutions-it/geofence/wiki/General-concepts#rules) for general information on how to create Rules in Geofence.
-
-Additionally, it is possible to create one rule that restricts access to an area specified in the Metadata field of each user.
-
-1. Create an ALLOW rule for the desired service, layer,.. Do not specify a user.
-2. Open the 'Layer Details' form
+1. Create an ALLOW rule for the desired service, layer,.. Do not specify a user,
+2. Open the 'Layer Details' form,
 3. In the 'Allowed Area Metadata Field' textbox, fill in the name of the metadata field that contains the correct geometry (not including the 'metadata.' prefix here).
- 
 
-To go further, a recommended reading is the [official documentation](https://github.com/georchestra/geofence/blob/master/README.markdown).
