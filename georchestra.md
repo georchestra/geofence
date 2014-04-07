@@ -15,27 +15,6 @@ Compared to GeoServer's own [data security](http://docs.geoserver.org/stable/en/
 When GeoFence is activated, GeoServer [service security](http://docs.geoserver.org/stable/en/user/security/service.html) is still active.
 
 
-geOrchestra Integration
---------------------------
-###Build
-**Important** : when building geOrchestra with the geofence profile, it will build the core geofence and the ui of geofence webapp, plus a customised version of geoserver, which can defer rules management to the geofence module.
-
-#### Maven Profile
-You can activate the build of geofence with the maven profile *-Pgeofence*.
-The build of geofence is managed within geoserver profile, you can't build geofence without building geoserver.
-
-Ex:
-
-    ./mvn clean install -Ptemplate -P-all -Pgeofence -Pgeoserver -Pgdal -Pjp2k -Pmonitor -Pinspire -Pwps -Pcss -Ppyramid -DskipTests
-    
-will build geofence and a geoserver (geoserver-private-template.war and geofence-private-template.war).
-
-####Build Process
-- If geofence profile is not activated
-geoserver submodule will be build as a war, then exploded and compressed again with geOrchestra geoserver specifics stuff.
-- If geofence is activated
-geoserver submodule will be build, then geofence geoserver will be build by overwritting webapp and security modules of the built geserver. Then geOrchestra geoserver will be reconstructed on top of the geofence geoserver target war file.
-
 Configuration
 --------------
 #### Official documentation
@@ -163,3 +142,25 @@ Now, to create a rule that restricts access to an area specified in the Metadata
 2. Open the 'Layer Details' form,
 3. In the 'Allowed Area Metadata Field' textbox, fill in the name of the metadata field that contains the correct geometry (not including the 'metadata.' prefix here).
 
+
+
+geOrchestra Integration
+--------------------------
+###Build
+**Important** : when building geOrchestra with the geofence profile, it will build the core geofence and the ui of geofence webapp, plus a customised version of geoserver, which can defer rules management to the geofence module.
+
+#### Maven Profile
+You can activate the build of geofence with the maven profile *-Pgeofence*.
+The build of geofence is managed within geoserver profile, you can't build geofence without building geoserver.
+
+Ex:
+
+    ./mvn clean install -Ptemplate -P-all -Pgeofence -Pgeoserver -Pgdal -Pjp2k -Pmonitor -Pinspire -Pwps -Pcss -Ppyramid -DskipTests
+    
+will build geofence and a geoserver (geoserver-private-template.war and geofence-private-template.war).
+
+####Build Process
+- If geofence profile is not activated
+geoserver submodule will be build as a war, then exploded and compressed again with geOrchestra geoserver specifics stuff.
+- If geofence is activated
+geoserver submodule will be build, then geofence geoserver will be build by overwritting webapp and security modules of the built geserver. Then geOrchestra geoserver will be reconstructed on top of the geofence geoserver target war file.
