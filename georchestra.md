@@ -108,9 +108,10 @@ When your geoserver instance is referenced is the geofence UI, it is able to fet
 #### Rules
 
 Here is the place where you can specify your own security rules.
-Recommended reading: https://github.com/geosolutions-it/geofence/wiki/General-concepts
 
-**Important:** GeoFence rules will fully overwrite **GeoServer** layer security rules, they are not complementary. Once you've installed GeoFence, all your GeoServer rules will become obsolete.
+We **highly recommend** that your read the basics of rules' creation now: https://github.com/geosolutions-it/geofence/wiki/General-concepts
+
+Let's state it again: GeoFence rules will fully overwrite **GeoServer** layer security rules, as they are not complementary. Once you've installed GeoFence, all your GeoServer rules will become obsolete.
 
 
 If you need to import your existing **GeoServer** rules into **GeoFence**, you can find a simple java application that can help you in https://github.com/georchestra/geofence/tree/georchestra/src/samples/georchestra2geofence.
