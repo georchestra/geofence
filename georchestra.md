@@ -47,7 +47,7 @@ You can see files that set:
 
 Advanced geOrchestra users may override this configuration by adding those files in their own configuration folder (config/configurations/yourown) before editing them.
 
-Howerver, **this is not recommended**, because this is highly error-prone when upgrading geOrchestra. Instead, you should take advantage of the [GenerateConfig script](https://github.com/georchestra/template/blob/328f39e1a7ffee2c8a74dd91f3c21565856e74a3/build_support/GenerateConfig.groovy#L125) which is located in the ```build_support``` folder of your own configuration.
+Howerver, **this is not recommended**, because it is highly error-prone when upgrading geOrchestra. Instead, you should take advantage of the [GenerateConfig script](https://github.com/georchestra/template/blob/328f39e1a7ffee2c8a74dd91f3c21565856e74a3/build_support/GenerateConfig.groovy#L125) which is located in the ```build_support``` folder of your own configuration.
 
 
 
