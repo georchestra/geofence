@@ -1,7 +1,7 @@
 GeoFence Module
 ==================
 
-In geOrchestra, **GeoFence** is an optional module, which handles data security by **overriding** [GeoServer](http://www.geoserver.org)'s own data security ACL.
+In geOrchestra, **GeoFence** is an optional module, which handles data security by **overriding** GeoServer's own data security ACL.
 
 Compared to GeoServer's own [data security](http://docs.geoserver.org/stable/en/user/security/layer.html), it provides interesting new features, such as:
 - distinct rules on services (WMS, WFS, WCS, ...),
