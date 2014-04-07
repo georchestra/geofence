@@ -61,8 +61,10 @@ Start with GeoFence
 --------------------
 
 ###Access to Geofence
-**GeoFence** is generally be reachable at http://mygeorchestra/geofence
-**GeoFence** is behind the security-proxy and only users with role ROLE_ADMINISTRATOR can access to the admin ui.
+
+Your **GeoFence** instance should be reachable at http://mygeorchestra/geofence/.
+
+As it stands behind the security-proxy, only users belonging to the ```ROLE_ADMINISTRATOR``` group may access the admin UI.
 
 ###Web Interface
 
@@ -74,9 +76,13 @@ Let's focus on the TabPanel first.
 
 You can manage **several GeoServer instances** within the same GeoFence. 
 
-If none is already setup, you have to create an instance for your georchestra geoserver in the instance tab. By default, geofence will look for an instance called *default-gs*, so it is **highly recommenced** that you name your instance as such ! 
+If none is already setup, you have to create an instance for your own geOrchestra GeoServer in the instance tab. 
+
+By default, GeoFence will look for an instance called *default-gs*, so it is **highly recommended** that you name your instance as such !
 
 You will also have to specify a user that is ADMINISTRATOR of the geoserver (eg: your ```shared.privileged.geoserver.user```, which is "geoserver_privileged_user" by default, is the best candidate). 
+
+When your geoserver instance is referenced is the geofence UI, it is able to fetch the workspaces and layers information from the geoserver catalog, using its REST API.
 
 
 #### Rules
