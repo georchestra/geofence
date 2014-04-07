@@ -21,15 +21,14 @@ How to build ?
 When building geOrchestra with GeoFence, the process will build the core and the UI of geofence, **plus a customised version of geoserver**, which is able to defer rules management to the geofence module.
 
 #### Maven Profile
-You can activate the build of geofence with the maven profile *-Pgeofence*.
 
 The geofence build is managed within geoserver profiles, which means: you can't build geofence without building geoserver !
 
-Ex:
+To build GeoFence, you have to use the maven profile *-Pgeofence*, when building geoserver:
 
-    ./mvn clean install -Ptemplate -P-all -Pgeofence -Pgeoserver -Pgdal -Pjp2k -Pmonitor -Pinspire -Pwps -Pcss -Ppyramid -DskipTests
+    ./mvn clean install -Ptemplate -P-all -Pgeoserver -Pgeofence -Pgdal -Pmonitor -Pinspire -Pwps -Ppyramid -DskipTests
 
-will build geofence and a geoserver (**geoserver-private-template.war** and **geofence-private-template.war**).
+will produce two artifacts **geoserver-private-template.war** and **geofence-private-template.war**.
 
 ####Build process insight
 - If the geofence profile is not activated, geoserver submodule will be built as a war, then exploded and compressed again with geOrchestra-geoserver specific stuff.
