@@ -5,7 +5,7 @@ In geOrchestra, **GeoFence** is an optional module, which handles data security 
 
 Compared to GeoServer's own [data security](http://docs.geoserver.org/stable/en/user/security/layer.html), it provides interesting new features, such as:
 - distinct rules on services (WMS, WFS, WCS, ...),
-- rules on request types (GetMap, GetFeature, GetCapabilities, ...),
+- distinct rules on request types (GetMap, GetFeature, GetCapabilities, ...),
 - feature attributes filtering,
 - rules on data CQL filters,
 - static geofencing, ie access is restricted to a group of users in a given area,  
