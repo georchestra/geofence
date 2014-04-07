@@ -28,8 +28,8 @@ The geofence build is managed within geoserver profiles, which means: you can't 
 Ex:
 
     ./mvn clean install -Ptemplate -P-all -Pgeofence -Pgeoserver -Pgdal -Pjp2k -Pmonitor -Pinspire -Pwps -Pcss -Ppyramid -DskipTests
-    
-will build geofence and a geoserver (geoserver-private-template.war and geofence-private-template.war).
+
+will build geofence and a geoserver (**geoserver-private-template.war** and **geofence-private-template.war**).
 
 ####Build Process
 - If geofence profile is not activated
