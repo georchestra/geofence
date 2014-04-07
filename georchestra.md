@@ -15,14 +15,8 @@ Compared to GeoServer's own [data security](http://docs.geoserver.org/stable/en/
 When GeoFence is activated, GeoServer [service security](http://docs.geoserver.org/stable/en/user/security/service.html) is still active.
 
 
-Configuration
---------------
-#### Official documentation
-Follow the official documentation to configure your geofence:
-* [How to build GeoFence](https://github.com/geosolutions-it/geofence/wiki/Building-instructions)
-* [How to configure GeoFence](https://github.com/geosolutions-it/geofence/wiki/WebApps-configuration)
-
-#### geOrchestra configuration
+System configuration
+--------------------
 
 The geOrchestra specific configuration is stored in the [config/defaults/geofence-webapp](config/defaults/geofence-webapp) folder.
 
@@ -33,13 +27,13 @@ You can see files that set:
 
 Advanced geOrchestra users may override this configuration by adding those files in their own configuration folder (config/configurations/yourown) before editing them.
 
-Howerver, this is not recommended, because this is highly error-prone when upgrading geOrchestra. Instead, you should take advantage of the [GenerateConfig script](https://github.com/georchestra/template/blob/328f39e1a7ffee2c8a74dd91f3c21565856e74a3/build_support/GenerateConfig.groovy#L125) which is located in the ```build_support``` folder of your own configuration.
+Howerver, **this is not recommended**, because this is highly error-prone when upgrading geOrchestra. Instead, you should take advantage of the [GenerateConfig script](https://github.com/georchestra/template/blob/328f39e1a7ffee2c8a74dd91f3c21565856e74a3/build_support/GenerateConfig.groovy#L125) which is located in the ```build_support``` folder of your own configuration.
 
 
 
 #### LDAP configuration
 
-By default, geofence works with LDAP. 
+By default, GeoFence accesses your LDAP tree in order to fetch the users and groups in a local database.
 
 **VERY Important :** all your LDAP users and groups **MUST** have a unique numeric identifier. By default, this attribute is (resp.)  **employeeNumber** and **ou**, but this can be changed in your configuration.
 
