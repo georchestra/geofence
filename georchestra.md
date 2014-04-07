@@ -31,7 +31,7 @@ Ex:
 
 will build geofence and a geoserver (**geoserver-private-template.war** and **geofence-private-template.war**).
 
-####Build Process
+####Build process insight
 - If the geofence profile is not activated, geoserver submodule will be built as a war, then exploded and compressed again with geOrchestra-geoserver specific stuff.
 - If geofence is activated, the geoserver submodule will be built, then geofence geoserver will be built by overwritting the webapp and security modules of the built geoserver. Then, geOrchestra geoserver will be reconstructed on top of the geofence geoserver target war file.
 
