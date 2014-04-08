@@ -67,7 +67,7 @@
 				<entry key="name" value="cn"/>
 				<entry key="surname" value="sn"/>    			
 				<entry key="password" value="userPassword"/>    	
-				<entry key="metadata.geometry" value="geometry"/>    			    		
+				<entry key="metadata.geometry" value="${geofenceLdapUserAttributesMapper.geometry}"/>
 			</map>
 		</property>
 	</bean>
