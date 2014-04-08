@@ -114,8 +114,7 @@ We **highly recommend** that your read the basics of rules' creation now: https:
 Let's state it again: GeoFence rules will fully overwrite **GeoServer** layer security rules, as they are not complementary. Once you've installed GeoFence, all your GeoServer rules will become obsolete.
 
 
-If you need to import your existing **GeoServer** rules into **GeoFence**, you can find a simple java application that can help you in https://github.com/georchestra/geofence/tree/georchestra/src/samples/georchestra2geofence.
-This sample code allow you to import 
+If you need to import your existing **GeoServer** rules into **GeoFence**, you can rely on [georchestra2geofence](https://github.com/georchestra/geofence/tree/georchestra/src/samples/georchestra2geofence), a simple java application, which will import:
 * groups from an [LDAP CSV export file](https://github.com/georchestra/geofence/blob/georchestra/src/samples/georchestra2geofence/src/test/resources/groups.csv)
 * rules from [GeoServer layers security file](https://github.com/georchestra/geofence/blob/georchestra/src/samples/georchestra2geofence/src/test/resources/layers.properties)
 
