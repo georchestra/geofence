@@ -84,7 +84,7 @@ Start with GeoFence
 
 Your **GeoFence** instance should be reachable at http://mygeorchestra/geofence/.
 
-As it stands behind the security-proxy, only users belonging to the ```ROLE_ADMINISTRATOR``` group may access the admin UI.
+As it stands behind the security-proxy, only users belonging to the ```ADMINISTRATOR``` group may access the admin UI.
 
 ###Web Interface
 
@@ -124,7 +124,7 @@ Note also that there is a [proposal](https://github.com/geosolutions-it/geofence
 #### Testing the rules
 
 If you're testing the rules, please keep in mind that:
- * members of the ADMINISTRATOR LDAP group are almighty: they are granted access to all layers with no restrictions,
+ * members of the ```ADMINISTRATOR``` LDAP group are almighty: they are granted access to all layers with no restrictions,
  * rules are applied with a small delay (approx 30 seconds),
  * your browser, and possibly proxies may be agressively caching requests.
 
