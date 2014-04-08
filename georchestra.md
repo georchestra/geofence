@@ -151,7 +151,7 @@ To setup Dynamic GeoFencing:
  * check that your users in LDAP have an ```l``` field set to an EWKT string,
  * in geofence, create a rule for one layer whose type is ALLOW,
  * click on "layer details", 
- * in the "Allowed Area MetaData Field" enter the string "geometry" (without the quotes)
+ * in the "Allowed Area MetaData Field" enter the string "geometry" (without the quotes). No black magic here, just have a look at [this](https://github.com/georchestra/georchestra/blob/master/config/defaults/geofence-webapp/WEB-INF/classes/geofence-ldap.properties#L13) and also [this](https://github.com/georchestra/geofence/blob/6f9cb02852f0b875e0bcc8ce5d6e3cdf96d04256/src/gui/web/src/main/resources/applicationContext-ldap.xml#L70).
  * save the rule
 
 
