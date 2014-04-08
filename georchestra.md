@@ -126,7 +126,7 @@ Note also that there is a [proposal](https://github.com/geosolutions-it/geofence
 By default, **GeoFence** allows you to restrict layer visibility on a static geometry (aka "static geofencing").
 You can add this constraint into the rule definition itself (rule type is "LIMIT").
 
-In geOrchestra, you can extend this by setting a geometry to each user in LDAP (aka "dynamic geofencing"). If a user has a geometry in his LDAP record, all layers (or a subset) can be restricted to that geometry, by defining only one rule.
+In geOrchestra, you can extend this by setting a geometry to each user in LDAP (aka "dynamic geofencing"). If a user has a geometry in his LDAP record, a layer may be restricted to this dynamic geometry, by defining a single rule.
 
 **VERY Important:** Note that the geometry is defined as a WKT geometry. The WKT projection has to be the same as the native projection of the filtered layer(s) into GeoServer. Otherwise the rule won't be correctly applied.
 
