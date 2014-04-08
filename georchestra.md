@@ -38,7 +38,7 @@ will produce two artifacts **geoserver-private-template.war** and **geofence-pri
 System configuration
 --------------------
 
-The geOrchestra specific configuration is stored in the [config/defaults/geofence-webapp](config/defaults/geofence-webapp) folder.
+The geOrchestra specific configuration is stored in the [config/defaults/geofence-webapp](https://github.com/georchestra/georchestra/tree/master/config/defaults/geofence-webapp) folder.
 
 You can see files that set:
 * data base access,
