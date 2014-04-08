@@ -121,45 +121,37 @@ If you need to import your existing **GeoServer** rules into **GeoFence**, you c
 Note also that there is a [proposal](https://github.com/geosolutions-it/geofence/wiki/Proposal-%233:-GeoServer-Roles-to-GeoFence-groups-mapping) about using GeoServer Roles instead of users for authorization purposes through GeoFence
 
 
-#### Dynamic GeoFencing
+#### Testing the rules
 
-By default, **GeoFence** allows you to restrict layer visibility on a static geometry (aka "static geofencing").
-You can add this constraint into the rule definition itself (rule type is "LIMIT").
-
-In geOrchestra, you can extend this by setting a geometry to each user in LDAP (aka "dynamic geofencing"). If a user has a geometry in his LDAP record, a layer may be restricted to this dynamic geometry, by defining a single rule.
-
-**VERY Important:** Note that the geometry is defined as a WKT geometry. The WKT projection has to be the same as the native projection of the filtered layer(s) into GeoServer. Otherwise the rule won't be correctly applied.
+If you're testing the rules, please keep in mind that:
+ * members of the ADMINISTRATOR LDAP group are almighty: they are granted access to all layers with no restrictions,
+ * rules are applied with a small delay (approx 30 seconds),
+ * your browser, and possibly proxies may be agressively caching requests.
 
 
-Mapping the Geometry fields in LDAP to GeoFence
+#### Static / Dynamic GeoFencing
 
-See [LDAP module advanced configuration](https://github.com/geosolutions-it/geofence/wiki/LDAP-module#advanced-configuration) for general information on how to map LDAP attributes to Geofence.
-
-Additionally to the general attributes, we may specify custom MetaData fields. Assuming that the LDAP user objects have two attributes called 'geometry1' and 'geometry2' we may do as follows ::
-```
-   <bean id="geofenceLdapUserAttributesMapper"
-    class="it.geosolutions.geofence.ldap.dao.impl.GSUserAttributesMapper">
- 	<property name="ldapAttributeMappings">
- 		<map>
- 			<entry key="id" value="uidNumber"/>
-  			<entry key="username" value="uid"/>			
-                        <entry key="email" value="mail"/>
-			<entry key="name" value="cn"/>
-			<entry key="surname" value="sn"/>    			
- 			<entry key="password" value="userPassword"/>  
-                        <entry key="metadata.geometry1" value="geometry1"/>    			    		
-                        <entry key="metadata.geometry2" value="geometry2"/>    			    			    		
- 		</map>
- 	 </property>
-   </bean>
-```
-These LDAP attributes now become available in geofence.
+**GeoFence** allows you to restrict layer visibility on a static geometry (aka "static geofencing": the geometry is stored in the LIMITing rule) or on a dynamic geometry (aka "dynamic geofencing": the geometry is stored in the LDAP user record).
 
 
-Now, to create a rule that restricts access to an area specified in the Metadata field of each user:
+In both cases, the filtering geometry is stored as an EWKT (Extended Well-Known Text, eg: ```SRID=4326;POINT(-44.3 60.1)```). **The EWKT projection has to be the same as the native projection of the filtered layer(s) into GeoServer**. Otherwise the rule won't be correctly applied.
 
-1. Create an ALLOW rule for the desired service, layer,.. Do not specify a user,
-2. Open the 'Layer Details' form,
-3. In the 'Allowed Area Metadata Field' textbox, fill in the name of the metadata field that contains the correct geometry (not including the 'metadata.' prefix here).
+
+To setup Static GeoFencing: 
+ * create a rule whose type is LIMIT, 
+ * click on "layer details", 
+ * then:
+   * either paste an EWKT string in the "Allowed area" text box,
+   * or click the "draw area" button, draw your shape, finish with a double click,
+ * save the rule,
+ * dont' forget that there must be an ALLOWing rule whose priority is inferior to the LIMITing rule.
+
+
+To setup Dynamic GeoFencing:
+ * check that your users in LDAP have an ```l``` field set to an EWKT string,
+ * in geofence, create a rule for one layer whose type is ALLOW,
+ * click on "layer details", 
+ * in the "Allowed Area MetaData Field" enter the string "geometry" (without the quotes)
+ * save the rule
 
 
