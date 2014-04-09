@@ -154,4 +154,6 @@ To setup Dynamic GeoFencing:
  * in the "Allowed Area MetaData Field" enter the string "geometry" (without the quotes). No black magic here, just have a look at [this](https://github.com/georchestra/georchestra/blob/master/config/defaults/geofence-webapp/WEB-INF/classes/geofence-ldap.properties#L13) and also [this](https://github.com/georchestra/geofence/blob/6f9cb02852f0b875e0bcc8ce5d6e3cdf96d04256/src/gui/web/src/main/resources/applicationContext-ldap.xml#L70).
  * save the rule
 
+Please keep in mind that users without an ```l``` field **will be granted access to the whole layer**, as the rule type is ALLOW. We would recommend adding an empty geometry to all the users to explicitly specify they have no access.
+
 
