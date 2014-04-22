@@ -407,48 +407,50 @@ public class RuleReaderServiceImpl implements RuleReaderService {
             if (metadataField != null && !"".equals(metadataField)) {
             	
             	GSUser user = getFullUser(userFilter);
-            	String str = (String) user.getMetadata().get(metadataField);
-            	            	
-                if (str != null) {
-                	String wkt, srid;
-                    if (str.indexOf("SRID=") != -1) {
-                        String[] allowedAreaArray = str.split(";");
-
-                        srid = allowedAreaArray[0].split("=")[1];
-                        wkt = allowedAreaArray[1];
-                    }
-                    else {
-                        srid = "4326";
-                        wkt = str;
-                    }
-                    
-                    MultiPolygon the_geom = null;
-    				WKTReader wktReader = new WKTReader();
-    			
-					try {
-    					Geometry geometry;
-							geometry = wktReader.read(wkt);
-						    					
-    					if (geometry instanceof MultiPolygon) {
-        					the_geom = (MultiPolygon) geometry;
-        				} else if (geometry instanceof Polygon) {
-        					GeometryFactory factory = new GeometryFactory();
-        					the_geom = new MultiPolygon(
-        							new Polygon[] { (Polygon) geometry }, factory);
-        				}
-
-        				if (the_geom != null) {
-        					the_geom.setSRID(Integer.valueOf(srid).intValue());
-        					area = intersect(area, the_geom);
-        					if (LOGGER.isDebugEnabled()) {
-        		                LOGGER.debug("Extracted from " + user.getName() + " geometry: " + the_geom.toString());
-        		            }
-        				}
-					} catch (ParseException e) {
-						LOGGER.error(e);
-					}
-    				
-                }
+            	if (user != null) {
+	            	String str = (String) user.getMetadata().get(metadataField);
+	            	            	
+	                if (str != null) {
+	                	String wkt, srid;
+	                    if (str.indexOf("SRID=") != -1) {
+	                        String[] allowedAreaArray = str.split(";");
+	
+	                        srid = allowedAreaArray[0].split("=")[1];
+	                        wkt = allowedAreaArray[1];
+	                    }
+	                    else {
+	                        srid = "4326";
+	                        wkt = str;
+	                    }
+	                    
+	                    MultiPolygon the_geom = null;
+	    				WKTReader wktReader = new WKTReader();
+	    			
+						try {
+	    					Geometry geometry;
+								geometry = wktReader.read(wkt);
+							    					
+	    					if (geometry instanceof MultiPolygon) {
+	        					the_geom = (MultiPolygon) geometry;
+	        				} else if (geometry instanceof Polygon) {
+	        					GeometryFactory factory = new GeometryFactory();
+	        					the_geom = new MultiPolygon(
+	        							new Polygon[] { (Polygon) geometry }, factory);
+	        				}
+	
+	        				if (the_geom != null) {
+	        					the_geom.setSRID(Integer.valueOf(srid).intValue());
+	        					area = intersect(area, the_geom);
+	        					if (LOGGER.isDebugEnabled()) {
+	        		                LOGGER.debug("Extracted from " + user.getName() + " geometry: " + the_geom.toString());
+	        		            }
+	        				}
+						} catch (ParseException e) {
+							LOGGER.error(e);
+						}
+	    				
+	                }
+            	}
             	
             	
             }
