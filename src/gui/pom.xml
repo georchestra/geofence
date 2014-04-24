@@ -56,6 +56,11 @@
             <url>http://maven.geo-solutions.it</url>
         </repository>
         <repository>
+            <id>mapfishDev</id>
+            <name>Mapfish Dev repository</name>
+            <url>http://dev.mapfish.org/maven/repository/</url>
+        </repository>
+        <repository>
             <id>gwt-maven</id>
             <url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo</url>
         </repository>
