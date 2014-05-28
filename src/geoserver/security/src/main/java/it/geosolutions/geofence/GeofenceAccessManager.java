@@ -543,7 +543,9 @@ public class GeofenceAccessManager implements ResourceAccessManager, DispatcherC
 
         // get the rule, it contains default and allowed styles
         RuleFilter ruleFilter = new RuleFilter(RuleFilter.SpecialFilterType.ANY);
-        ruleFilter.setUser(username);
+        if(username != null) {
+	    ruleFilter.setUser(username);
+	}
         ruleFilter.setInstance(instanceName);
         ruleFilter.setService(service);
         ruleFilter.setRequest(request);
