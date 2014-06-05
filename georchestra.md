@@ -109,7 +109,7 @@ When your geoserver instance is referenced is the geofence UI, it is able to fet
 
 Here is the place where you can specify your own security rules.
 
-We **highly recommend** that your read the basics of rules' creation now: https://github.com/geosolutions-it/geofence/wiki/General-concepts#rules
+We **highly recommend** that you read the basics of rules' creation now: https://github.com/geosolutions-it/geofence/wiki/General-concepts#rules
 
 Let's state it again: GeoFence rules will fully overwrite **GeoServer** layer security rules, as they are not complementary. Once you've installed GeoFence, all your GeoServer rules will become obsolete.
 
