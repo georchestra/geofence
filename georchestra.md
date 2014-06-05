@@ -74,6 +74,9 @@ Namely, you have to change the className value, in order to refer to the geofenc
   
           <className>it.geosolutions.geoserver.authentication.auth.GeofenceAuthenticationProvider</className>
 
+Here's the diff: [georchestra/geoserver_minimal_datadir@2834a7)
+](https://github.com/georchestra/geoserver_minimal_datadir/commit/2834a7579ec429686d544ec50da14f9abadf2612)
+
 * you also have to enable geoserver REST services (see http://docs.geoserver.org/stable/en/user/security/rest.html)
 
 
