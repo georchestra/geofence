@@ -41,7 +41,7 @@ System configuration
 The geOrchestra specific configuration is stored in the [config/defaults/geofence-webapp](https://github.com/georchestra/georchestra/tree/master/config/defaults/geofence-webapp) folder.
 
 You can see files that set:
-* data base access,
+* database access,
 * ldap access,
 * ldap mapping definition,
 
