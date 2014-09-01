@@ -164,6 +164,7 @@ When GeoFence is activated:
  - GeoServer [service security](http://docs.geoserver.org/stable/en/user/security/service.html) is still active,
  - you cannot delegate workspace administration anymore,
  - an additional stylesheet is applied to GeoServer UI, which breaks some dropdowns in the embedded GeoWebCache config,
- - nested layergroups should be avoided, as they are known to break the capabilities, see [#746](https://github.com/georchestra/georchestra/issues/746) for more information.
+ - nested layergroups should be avoided, as they are known to break the capabilities, see [#746](https://github.com/georchestra/georchestra/issues/746) for more information,
+ - more important: layergroups cannot be modified once created, see [#748](https://github.com/georchestra/georchestra/issues/748).
 
 
