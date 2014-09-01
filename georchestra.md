@@ -159,3 +159,11 @@ To setup Dynamic GeoFencing:
 Please keep in mind that users without an ```l``` field **will be granted access to the whole layer**, as the rule type is ALLOW. We would recommend adding an empty geometry to all the users to explicitly specify they have no access.
 
 
+Caveats
+--------
+
+When GeoFence is activated:
+ - an additional stylesheet is applied to GeoServer UI, which breaks some dropdowns in the embedded GeoWebCache config,
+ - nested layergroups should be avoided, as they are known to break the capabilities, see [#746](https://github.com/georchestra/georchestra/issues/746) for more information.
+
+
