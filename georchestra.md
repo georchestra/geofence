@@ -160,6 +160,7 @@ Caveats
 --------
 
 When GeoFence is activated:
+ - the Catalog Mode is always set to HIDE for secured workspaces / layers,
  - GeoServer [service security](http://docs.geoserver.org/stable/en/user/security/service.html) is still active,
  - you cannot delegate workspace administration anymore,
  - an additional stylesheet is applied to GeoServer UI, which breaks some dropdowns in the embedded GeoWebCache config,
