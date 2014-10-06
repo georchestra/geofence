@@ -23,7 +23,7 @@ The geofence build is managed within geoserver profiles, which means: you can't 
 
 To build GeoFence, you have to use the maven profile *-Pgeofence*, when building geoserver:
 
-    ./mvn clean install -Ptemplate -P-all -Pgeoserver -Pgeofence -Pgdal -Pmonitor -Pinspire -Pwps -Ppyramid -DskipTests
+    ./mvn clean install -Ptemplate -P-all -Pgeoserver -Pgeofence -DskipTests
 
 will produce two artifacts **geoserver-private-template.war** and **geofence-private-template.war**.
 
