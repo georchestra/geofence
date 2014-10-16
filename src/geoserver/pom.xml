@@ -119,6 +119,17 @@
     </build>
 
     <repositories>
+    
+    	<!-- geOrchestra -->
+        <repository>
+          <snapshots>
+            <enabled>true</enabled>
+            <checksumPolicy>ignore</checksumPolicy>
+          </snapshots>
+          <id>georchestra</id>
+          <url>http://sdi.georchestra.org/maven/repository</url>
+        </repository>
+    
     	<!-- GeoSolutions -->
         <repository>
             <id>geosolutions</id>
