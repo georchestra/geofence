@@ -101,7 +101,7 @@ By default, GeoFence will look for an instance called *default-gs*, so it is **h
 
 You will also have to specify a user that is ADMINISTRATOR of the geoserver (eg: your ```shared.privileged.geoserver.user```, which is "geoserver_privileged_user" by default, is the best candidate). 
 
-When your geoserver instance is referenced is the geofence UI, it is able to fetch the workspaces and layers information from the geoserver catalog, using its REST API.
+When your geoserver instance is referenced in the geofence UI, it is able to fetch the workspaces and layers information from the geoserver catalog, using its REST API.
 
 
 #### Rules
