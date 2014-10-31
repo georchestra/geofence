@@ -25,7 +25,7 @@ To build GeoFence, you have to use the maven profile *-Pgeofence*, when building
 
     ./mvn clean install -Ptemplate -P-all -Pgeoserver -Pgeofence -DskipTests
 
-will produce two artifacts **geoserver-private-template.war** and **geofence-private-template.war**.
+will produce two artifacts **geoserver-template.war** and **geofence-template.war**.
 
 ####Build process insight
 - If the geofence profile is not activated, geoserver submodule will be built as a war, then exploded and compressed again with geOrchestra-geoserver specific stuff.
