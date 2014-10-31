@@ -52,7 +52,7 @@ Howerver, **this is not recommended**, because it is highly error-prone when upg
 
 By default, GeoFence accesses your LDAP tree in order to fetch the users and groups in a local database.
 
-**VERY Important :** all your LDAP users and groups **MUST** have a unique numeric identifier. By default, this attribute is (resp.)  **employeeNumber** and **ou**, but this can be changed in your configuration.
+**VERY Important** : **ALL** your LDAP users and groups **MUST** have a unique numeric identifier. By default, this attribute is (resp.)  **employeeNumber** and **ou**, but this can be changed in your configuration.
 
 If you stick to the [provided LDAP files](https://github.com/georchestra/LDAP/blob/master/georchestra.ldif) and use the LDAPadmin module to administer your users and groups, you should not have any problem. 
 
