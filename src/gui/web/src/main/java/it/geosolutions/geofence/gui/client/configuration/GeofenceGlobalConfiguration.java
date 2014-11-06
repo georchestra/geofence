@@ -57,7 +57,11 @@ public class GeofenceGlobalConfiguration implements IGeofenceConfiguration {
 	private String mapCenterLon;
 	private String mapCenterLat;
 	private String mapZoom;
-	/**
+    private String mapMaxResolution;
+    private String mapMaxExtent;
+    private String mapProjection;
+
+    /**
 	 * Gets the profile bean manager.
 	 * 
 	 * @return the profile bean manager
@@ -179,5 +183,28 @@ public class GeofenceGlobalConfiguration implements IGeofenceConfiguration {
 		this.mapZoom = mapZoom;
 	}
 
-	
+    public String getMapMaxResolution() {
+        return mapMaxResolution;
+    }
+
+    public void setMapMaxResolution(String mapMaxResolution) {
+        this.mapMaxResolution = mapMaxResolution;
+    }
+
+    public String getMapMaxExtent() {
+        return mapMaxExtent;
+    }
+
+    public void setMapMaxExtent(String mapMaxExtent) {
+        this.mapMaxExtent = mapMaxExtent;
+    }
+
+    public String getMapProjection() {
+        return mapProjection;
+    }
+
+    public void setMapProjection(String mapProjection) {
+        this.mapProjection = mapProjection;
+    }
+
 }
