@@ -324,10 +324,29 @@ public class AppView extends View
 
         viewport.add(center, data);
 
+        GeofenceGlobalConfiguration geoFenceConfiguration = (GeofenceGlobalConfiguration) GeofenceUtils.
+                getInstance().getGlobalConfiguration();
+
         /* map options */
         MapOptions mapOptions = new MapOptions();
         mapOptions.setUnits(MapUnits.DEGREES);
-        mapOptions.setProjection("EPSG:4326");
+
+        String projection = geoFenceConfiguration.getMapProjection();
+        if(projection == null) {
+            projection = "EPSG:4326";
+        }
+        mapOptions.setProjection(projection);
+        mapOptions.setMaxResolution(Float.valueOf(geoFenceConfiguration.getMapMaxResolution()));
+
+        String configMaxExtent = geoFenceConfiguration.getMapMaxExtent();
+        if(configMaxExtent != null) {
+            String[] maxExtent = geoFenceConfiguration.getMapMaxExtent().split(",");
+            Bounds bounds = new Bounds(Double.valueOf(maxExtent[0]),
+                    Double.valueOf(maxExtent[1]),
+                    Double.valueOf(maxExtent[2]),
+                    Double.valueOf(maxExtent[3]));
+            mapOptions.setMaxExtent(bounds);
+        }
 
         MousePositionOutput mpOut = new MousePositionOutput()
             {
@@ -364,8 +383,6 @@ public class AppView extends View
 
         Dispatcher.forwardEvent(GeoGWTEvents.ATTACH_MAP_WIDGET, map);
         
-        GeofenceGlobalConfiguration geoFenceConfiguration = (GeofenceGlobalConfiguration) GeofenceUtils.
-                getInstance().getGlobalConfiguration();
 
         // Adjusting the Zoom level
         // Dispatcher.forwardEvent(GeoGWTEvents.ZOOM_TO_MAX_EXTENT);
