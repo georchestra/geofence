@@ -143,7 +143,7 @@ To setup Static GeoFencing:
    * either paste an EWKT string in the "Allowed area" text box,
    * or click the "draw area" button, draw your shape, finish with a double click,
  * save the rule,
- * dont' forget that there must be an ALLOWing rule whose priority is inferior to the LIMITing rule.
+ * dont' forget that there must be an ALLOWing rule whose priority is inferior (ie numerically superior) to the LIMITing rule.
 
 
 To setup Dynamic GeoFencing:
