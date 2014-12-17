@@ -17,7 +17,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.geoserver</groupId>
-			<artifactId>main</artifactId>
+			<artifactId>gs-main</artifactId>
 			<version>${geoserver-version}</version>
 			<exclusions>
 				<exclusion>
@@ -28,7 +28,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.geoserver</groupId>
-			<artifactId>wms</artifactId>
+			<artifactId>gs-wms</artifactId>
 			<version>${geoserver-version}</version>
 		</dependency>
 		<dependency>
@@ -74,7 +74,7 @@
         
 		<dependency>
 			<groupId>org.geoserver</groupId>
-			<artifactId>rest</artifactId>
+			<artifactId>gs-rest</artifactId>
 			<version>${geoserver-version}</version>
 		</dependency>
         
@@ -87,7 +87,7 @@
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>org.geoserver</groupId>
-			<artifactId>main</artifactId>
+			<artifactId>gs-main</artifactId>
 			<version>${geoserver-version}</version>
 			<classifier>tests</classifier>
 			<exclusions>
@@ -130,7 +130,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.geoserver</groupId>
-			<artifactId>wfs</artifactId>
+			<artifactId>gs-wfs</artifactId>
 			<version>${geoserver-version}</version>
 			<scope>test</scope>
 		</dependency>

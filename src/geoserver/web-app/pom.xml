@@ -33,19 +33,19 @@
     <dependency>
       <!-- GeoServer Trunk Artifact -->
       <groupId>org.geoserver.web</groupId>
-      <artifactId>web-app</artifactId>
+      <artifactId>gs-web-app</artifactId>
       <version>${geoserver-version}</version>
     </dependency>
 
     <!-- common extension modules -->
     <dependency>
       <groupId>org.geoserver.extension</groupId>
-      <artifactId>control-flow</artifactId>
+      <artifactId>gs-control-flow</artifactId>
       <version>${geoserver-version}</version>
     </dependency>
     <dependency>
       <groupId>org.geoserver.extension</groupId>
-      <artifactId>oracle</artifactId>
+      <artifactId>gs-oracle</artifactId>
       <version>${geoserver-version}</version>
     </dependency>
     <dependency>
@@ -216,7 +216,7 @@
         <dependencies>
           <dependency>
             <groupId>org.geoserver.community</groupId>
-            <artifactId>monitoring</artifactId>
+            <artifactId>gs-monitoring</artifactId>
             <version>${geoserver-version}</version>
           </dependency>
         </dependencies>
@@ -232,7 +232,7 @@
         <dependencies>
           <dependency>
             <groupId>org.geoserver</groupId>
-            <artifactId>importer-web</artifactId>
+            <artifactId>gs-importer-web</artifactId>
 			<version>${geoserver-version}</version>
           </dependency>
         </dependencies>
@@ -251,7 +251,7 @@
         <dependencies>
           <dependency>
             <groupId>it.geosolutions.geoserver</groupId>
-            <artifactId>1Prenderfilter</artifactId>
+            <artifactId>gs-1Prenderfilter</artifactId>
             <version>${geoserver-version}</version>
           </dependency>
         </dependencies>
