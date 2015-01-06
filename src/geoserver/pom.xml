@@ -36,7 +36,7 @@
     <properties>
         <main-prefix>geofence</main-prefix>
         <geofence-version>2.2-SNAPSHOT</geofence-version>
-        <geoserver-version>2.5.1</geoserver-version>
+        <geoserver-version>2.5.4</geoserver-version>
         <jetty-version>6.1.8</jetty-version>
     </properties>
 

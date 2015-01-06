@@ -39,16 +39,6 @@
 
     <!-- common extension modules -->
     <dependency>
-      <groupId>org.geoserver.extension</groupId>
-      <artifactId>gs-control-flow</artifactId>
-      <version>${geoserver-version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.geoserver.extension</groupId>
-      <artifactId>gs-oracle</artifactId>
-      <version>${geoserver-version}</version>
-    </dependency>
-    <dependency>
       <groupId>it.geosolutions.geofence.geoserver</groupId>
       <artifactId>geofence-security</artifactId>
       <version>${project.version}</version>
