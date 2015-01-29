@@ -243,7 +243,11 @@ public class GeofenceAccessManager implements ResourceAccessManager, DispatcherC
                 LOGGER.log(Level.FINE, "Admin level access, returning " +
                     "full rights for layer {0}", resource.getPrefixedName());
 
-                return buildAccessLimits(resource, AccessInfo.ALLOW_ALL);
+                // georchestra fix: Being coherent with what GeoServer does:
+                //
+                // if administrator, WrapperPolicy.getLimits() should return null.
+                // (see SecureCatalogImpl.java:506,590 in GeoServer)
+                return null;
             }
 
             username = user.getName();
