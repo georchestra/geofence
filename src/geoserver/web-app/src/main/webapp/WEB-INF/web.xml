@@ -181,6 +181,11 @@
      reasons 
      -->
    </filter>
+   
+   <filter-mapping>
+      <filter-name>Set Character Encoding</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <filter-mapping>
       <filter-name>SessionDebugger</filter-name>
@@ -214,11 +219,6 @@
       <filter-name>Georepository alternate security filter</filter-name>
       <url-pattern>/*</url-pattern>
     </filter-mapping>-->
-    
-      <filter-mapping>
-      <filter-name>Set Character Encoding</filter-name>
-      <url-pattern>/*</url-pattern>
-    </filter-mapping>
     
     <filter-mapping>
       <filter-name>Advanced Dispatch Filter</filter-name>
