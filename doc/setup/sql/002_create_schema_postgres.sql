@@ -1,4 +1,4 @@
-﻿begin;
+begin;
 
 create schema geofence;
 
