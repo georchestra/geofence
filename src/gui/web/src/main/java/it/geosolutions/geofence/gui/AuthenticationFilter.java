@@ -81,7 +81,7 @@ public class AuthenticationFilter implements Filter
             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
             authorities.add(new SimpleGrantedAuthority(ROOT_ROLE));
-            for (String role : httpRequest.getHeader("sec-roles").split(",")) {
+            for (String role : httpRequest.getHeader("sec-roles").split(";")) {
                 authorities.add(new SimpleGrantedAuthority(role));
             }
 
