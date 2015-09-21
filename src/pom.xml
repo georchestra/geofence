@@ -72,6 +72,17 @@
             <enabled>true</enabled>
          </snapshots>
       </repository>
+      <!-- hibernate spatial repository -->
+      <repository>
+         <id>hibernate-spatial</id>
+         <name>Hibernate Spatial Repository</name>
+         <url>http://www.hibernatespatial.org/repository/</url>
+         <snapshots>
+            <enabled>true</enabled>
+         </snapshots>
+      </repository>
+
+
    </repositories>
 
    <distributionManagement>
