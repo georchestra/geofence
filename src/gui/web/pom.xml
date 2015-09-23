@@ -464,20 +464,20 @@
          http://web.archive.org/web/20130830010044/http://www.hibernatespatial.org/hibernate-spatial-h2-geodb/usage.html
     -->
     <profiles>
-        <profile>
-            <id>postgis</id>            
-            <dependencies>
-                <dependency>
-                    <groupId>org.hibernatespatial</groupId>
-                    <artifactId>hibernate-spatial-postgis</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
+      <profile>
+        <id>postgis</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+        <dependencies>
+          <dependency>
+            <groupId>org.hibernatespatial</groupId>
+            <artifactId>hibernate-spatial-postgis</artifactId>
+          </dependency>
+        </dependencies>
+      </profile>
         <profile>
             <id>h2</id>    
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <dependencies>
                 <dependency>
                     <groupId>org.hibernatespatial</groupId>
