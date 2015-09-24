@@ -5,7 +5,7 @@
 
 package org.geoserver.geofence.gui.server.service;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
 import org.geoserver.geofence.gui.client.model.UserModel;
 
@@ -28,7 +28,7 @@ public interface ILoginService
      *            the session
      * @return the profile
      */
-    public UserModel authenticate(String userName, String password, HttpSession session);
+    public UserModel authenticate(String userName, String password, HttpServletRequest request);
 
     // public PagingLoadResult<User> loadUsers(PagingLoadConfig config,
     // String searchText) throws ApplicationException;

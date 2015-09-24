@@ -5,6 +5,7 @@
 
 package org.geoserver.geofence.gui.server.gwt;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -14,7 +15,6 @@ import org.geoserver.geofence.gui.client.service.LoginRemoteService;
 import org.geoserver.geofence.gui.server.GeofenceKeySessionValues;
 import org.geoserver.geofence.gui.server.service.ILoginService;
 import org.geoserver.geofence.gui.spring.ApplicationContextUtil;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,8 +40,7 @@ public class LoginRemoteServiceImpl extends RemoteServiceServlet implements Logi
      */
     public LoginRemoteServiceImpl()
     {
-        this.loginService = (ILoginService) ApplicationContextUtil.getInstance().getBean(
-                "loginService");
+        this.loginService = (ILoginService) ApplicationContextUtil.getInstance().getBean("loginService");
     }
 
     /*
@@ -52,9 +51,8 @@ public class LoginRemoteServiceImpl extends RemoteServiceServlet implements Logi
      */
     public UserModel authenticate(String userName, String password)
     {
-        HttpSession session = getThreadLocalRequest().getSession();
-
-        return loginService.authenticate(userName, password, session);
+        HttpServletRequest request = getThreadLocalRequest();
+        return loginService.authenticate(userName, password, request);
     }
 
     /*
