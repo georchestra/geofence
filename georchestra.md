@@ -166,5 +166,5 @@ When GeoFence is activated:
  - an additional stylesheet is applied to GeoServer UI, which breaks some dropdowns in the embedded GeoWebCache config,
  - the WPS service cannot be addressed (it is not taken into account by GeoFence),
  - nested layergroups should be avoided, as they are known to break the capabilities, see [#746](https://github.com/georchestra/georchestra/issues/746) for more information.
-
+ - layergroup legends end up as NPE for anonymous requests
 
