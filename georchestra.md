@@ -1,5 +1,4 @@
-GeoFence Module
-==================
+# GeoFence Module
 
 In geOrchestra, **GeoFence** is an optional module, which handles data security by **overriding** GeoServer's own data security ACL.
 
@@ -12,12 +11,11 @@ Compared to GeoServer's own [data security](http://docs.geoserver.org/stable/en/
 - dynamic geofencing, based on a geometry stored in the user's LDAP record.
 
 
-How to build ?
----------------
+## How to build ?
 
 When building geOrchestra with GeoFence, the process will build the core and the UI of geofence, **plus a customised version of geoserver**, which is able to defer rules management to the geofence module.
 
-#### Maven Profile
+### Maven Profile
 
 The geofence build is managed within geoserver profiles, which means: you can't build geofence without building geoserver !
 
@@ -27,13 +25,12 @@ To build GeoFence, you have to use the maven profile *-Pgeofence*, when building
 
 will produce two artifacts **geoserver-template.war** and **geofence-template.war**.
 
-####Build process insight
+### Build process insight
 - If the geofence profile is not activated, geoserver submodule will be built as a war, then exploded and compressed again with geOrchestra-geoserver specific stuff.
 - If geofence is activated, the geoserver submodule will be built, then geofence geoserver will be built by overwritting the webapp and security modules of the built geoserver. Then, geOrchestra geoserver will be reconstructed on top of the geofence geoserver target war file.
 
 
-System configuration
---------------------
+## System configuration
 
 The geOrchestra specific configuration is stored in the [config/defaults/geofence-webapp](https://github.com/georchestra/georchestra/tree/master/config/defaults/geofence-webapp) folder.
 
@@ -48,7 +45,7 @@ However, **this is not recommended**, because it is highly error-prone when upgr
 
 
 
-#### LDAP configuration
+### LDAP configuration
 
 By default, GeoFence accesses your LDAP tree in order to fetch the users and groups in a local database.
 
@@ -60,7 +57,7 @@ If you use your own LDAP tree, or a custom application to manage your LDAP, plea
 
 For more information, please refer to the original GeoFence LDAP module [https://github.com/geosolutions-it/geofence/wiki/LDAP-module](documentation).
 
-#### GeoServer DATA_DIR
+### GeoServer DATA_DIR
 
 Either you're using the provided [geoserver minimal data dir](https://github.com/georchestra/geoserver_minimal_datadir) (**branch geofence**), and you should be fine.
 
@@ -76,16 +73,15 @@ Here's the diff: [georchestra/geoserver_minimal_datadir@2834a7](https://github.c
 * you also have to enable geoserver REST services (see http://docs.geoserver.org/stable/en/user/security/rest.html)
 
 
-Start with GeoFence
---------------------
+## Start with GeoFence
 
-###Access to Geofence
+### Access to Geofence
 
 Your **GeoFence** instance should be reachable at http://mygeorchestra/geofence/.
 
 As it stands behind the security-proxy, only users belonging to the ```ADMINISTRATOR``` group may access the admin UI.
 
-###Web Interface
+### Web Interface
 
 Once logged in the web interface, one can see a map and two tabs (instances and rules). 
 
@@ -156,8 +152,7 @@ To setup Dynamic GeoFencing:
 Please keep in mind that users without an ```l``` field **will be granted access to the whole layer**, as the rule type is ALLOW. We would recommend adding an empty geometry to all the users to explicitly specify they have no access.
 
 
-Caveats
---------
+## Caveats
 
 When GeoFence is activated:
  - the Catalog Mode is always set to HIDE for secured workspaces / layers,
